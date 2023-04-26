@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".HomeActivity">
 
     <FrameLayout
         android:id="@+id/logo"
@@ -40,7 +40,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="180dp"
-        android:textColor="@color/light_blue"
+        android:textColor="@color/dark_blue"
         android:textSize="40sp"
         android:textStyle="bold" />
 
@@ -73,9 +73,9 @@
                 android:id="@+id/email_icon"
                 android:layout_width="35dp"
                 android:layout_height="35dp"
-                android:padding="5dp"
+                android:padding="3dp"
                 android:src="@drawable/email"
-                app:tint="@color/light_blue" />
+                app:tint="@color/dark_blue" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -105,7 +105,7 @@
                 android:layout_height="35dp"
                 android:padding="5dp"
                 android:src="@drawable/phone"
-                app:tint="@color/light_blue" />
+                app:tint="@color/dark_blue" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -135,7 +135,7 @@
                 android:layout_height="35dp"
                 android:padding="5dp"
                 android:src="@drawable/location"
-                app:tint="@color/light_blue" />
+                app:tint="@color/dark_blue" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -165,7 +165,7 @@
                 android:layout_height="35dp"
                 android:padding="3dp"
                 android:src="@drawable/key"
-                app:tint="@color/light_blue" />
+                app:tint="@color/dark_blue" />
         </RelativeLayout>
 
 

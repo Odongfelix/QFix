@@ -12,7 +12,7 @@ public class RegistrationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
         findViewById(R.id.login).setOnClickListener(l -> {
-            startActivity(new Intent(RegistrationActivity.this, HomeActivity.class));
+            startActivity(new Intent(RegistrationActivity.this, LoginActivity.class));
         });
     }
 }
