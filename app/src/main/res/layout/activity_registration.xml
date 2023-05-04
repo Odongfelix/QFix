@@ -39,7 +39,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="180dp"
+        android:layout_marginTop="160dp"
         android:textColor="@color/dark_blue"
         android:textSize="40sp"
         android:textStyle="bold" />
@@ -170,6 +170,18 @@
 
 
     </RelativeLayout>
+    <ImageView
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:src="@drawable/back"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/blur_dark_blue_rect"
+        android:layout_marginEnd="30dp"
+        android:layout_toStartOf="@id/login"
+        android:layout_below="@id/login_cover"
+        android:id="@+id/back_"
+        android:visibility="gone"
+        />
 
 
     <TextView
@@ -178,9 +190,25 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/login_cover"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
-        android:layout_marginBottom="30dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/login_background"
+        android:paddingStart="50dp"
+        android:paddingTop="10dp"
+        android:paddingEnd="50dp"
+        android:paddingBottom="10dp"
+        android:text="register as technician"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+    <TextView
+        android:id="@+id/login_client"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/login"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/blur_dark_blue_rect"
         android:paddingStart="100dp"
         android:paddingTop="10dp"
         android:paddingEnd="100dp"
@@ -194,7 +222,7 @@
         android:id="@+id/hint"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/login"
+        android:layout_below="@id/login_client"
         android:layout_centerHorizontal="true"
         android:text="or Sign up with" />
 
@@ -214,6 +242,7 @@
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
             android:padding="10dp"
+            app:tint="@color/dark_blue"
             android:src="@drawable/facebook_colored" />
 
         <ImageView
@@ -225,6 +254,7 @@
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
             android:padding="10dp"
+            app:tint="@color/dark_blue"
             android:src="@drawable/google" />
 
         <ImageView
@@ -236,6 +266,7 @@
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
             android:padding="10dp"
+            app:tint="@color/dark_blue"
             android:src="@drawable/instagram_colored" />
     </LinearLayout>
 

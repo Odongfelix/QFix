@@ -126,14 +126,31 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/forgot"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
-        android:layout_marginBottom="30dp"
+        android:layout_marginTop="40dp"
         android:background="@drawable/login_background"
-        android:paddingStart="100dp"
+        android:paddingStart="50dp"
         android:paddingTop="10dp"
-        android:paddingEnd="100dp"
+        android:paddingEnd="50dp"
         android:paddingBottom="10dp"
-        android:text="Log in"
+        android:text="continue as technician"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/login_client"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/login"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/blur_dark_blue_rect"
+        android:paddingStart="50dp"
+        android:paddingTop="10dp"
+        android:paddingEnd="50dp"
+        android:paddingBottom="10dp"
+        android:text="continue as client"
         android:textSize="20sp"
         android:textColor="@color/white"
         android:textStyle="bold" />
@@ -142,7 +159,7 @@
         android:id="@+id/hint"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/login"
+        android:layout_below="@id/login_client"
         android:layout_centerHorizontal="true"
         android:text="or Login from" />
 
@@ -162,6 +179,7 @@
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
             android:padding="10dp"
+            app:tint="@color/dark_blue"
             android:src="@drawable/facebook_colored" />
 
         <ImageView
@@ -173,6 +191,7 @@
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
             android:padding="10dp"
+            app:tint="@color/dark_blue"
             android:src="@drawable/google" />
 
         <ImageView
@@ -184,6 +203,7 @@
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
             android:padding="10dp"
+            app:tint="@color/dark_blue"
             android:src="@drawable/instagram_colored" />
     </LinearLayout>
 
