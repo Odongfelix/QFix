@@ -10,15 +10,15 @@
         android:id="@+id/logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="10dp"
-        android:layout_marginBottom="10dp">
+        >
 
         <ImageView
-            android:src="@mipmap/ic_launcher_foreground"
-            android:layout_width="300dp"
+            android:src="@drawable/logo"
+            android:layout_width="50dp"
             android:scaleType="fitXY"
-            android:layout_height="300dp"
+            android:layout_height="50dp"
             />
 
     </FrameLayout>
@@ -32,14 +32,14 @@
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
-        app:tint="@color/dark_red" />
+        android:src="@drawable/back" />
 
     <TextView
         android:id="@+id/login_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="160dp"
+        android:layout_marginTop="60dp"
         android:textColor="@color/dark_blue"
         android:textSize="40sp"
         android:textStyle="bold" />
@@ -57,25 +57,23 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_marginStart="100dp"
-            android:background="@drawable/line_rect"
             android:padding="5dp">
 
             <EditText
                 android:id="@+id/email"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:layout_toEndOf="@id/email_icon"
-                android:background="@android:color/transparent"
-                android:hint="Email" />
-
-            <ImageView
-                android:id="@+id/email_icon"
-                android:layout_width="35dp"
                 android:layout_height="35dp"
-                android:padding="3dp"
-                android:src="@drawable/email"
-                app:tint="@color/dark_blue" />
+                android:layout_marginStart="5dp"
+                android:layout_toEndOf="@id/email_icon"
+                />
+
+            <TextView
+                android:layout_marginTop="5dp"
+                android:id="@+id/email_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+               android:text="Email" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -86,26 +84,23 @@
             android:layout_below="@id/email_cover"
             android:layout_centerHorizontal="true"
             android:layout_marginStart="100dp"
-            android:background="@drawable/line_rect"
             android:padding="5dp">
 
             <EditText
                 android:id="@+id/phone"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
+                android:layout_height="35dp"
                 android:inputType="phone"
                 android:layout_toEndOf="@id/phone_icon"
-                android:background="@android:color/transparent"
-                android:hint="phone number" />
+                />
 
-            <ImageView
+            <TextView
                 android:id="@+id/phone_icon"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:padding="5dp"
-                android:src="@drawable/phone"
-                app:tint="@color/dark_blue" />
+                android:layout_marginTop="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:text="Phone" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -116,26 +111,24 @@
             android:layout_below="@id/phone_cover"
             android:layout_centerHorizontal="true"
             android:layout_marginStart="100dp"
-            android:background="@drawable/line_rect"
             android:padding="5dp">
 
             <EditText
                 android:id="@+id/location"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="5dp"
                 android:inputType="phone"
                 android:layout_toEndOf="@id/location_icon"
-                android:background="@android:color/transparent"
-                android:hint="location" />
+                />
 
-            <ImageView
+            <TextView
                 android:id="@+id/location_icon"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:padding="5dp"
-                android:src="@drawable/location"
-                app:tint="@color/dark_blue" />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Location"
+                android:layout_marginTop="5dp"
+                android:textColor="@color/black"/>
         </RelativeLayout>
 
         <RelativeLayout
@@ -146,58 +139,51 @@
             android:layout_centerHorizontal="true"
             android:layout_marginStart="100dp"
             android:layout_marginTop="20dp"
-            android:background="@drawable/line_rect"
             android:padding="5dp">
 
             <EditText
                 android:id="@+id/password"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="5dp"
                 android:layout_toEndOf="@id/password_icon"
-                android:background="@android:color/transparent"
-                android:hint="password"
                 android:inputType="textPassword" />
 
-            <ImageView
+            <TextView
                 android:id="@+id/password_icon"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:padding="3dp"
-                android:src="@drawable/key"
-                app:tint="@color/dark_blue" />
+                android:layout_marginTop="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:text="Password" />
         </RelativeLayout>
 
 
     </RelativeLayout>
-    <ImageView
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:src="@drawable/back"
-        android:layout_marginTop="30dp"
-        android:background="@drawable/blur_dark_blue_rect"
-        android:layout_marginEnd="30dp"
-        android:layout_toStartOf="@id/login"
-        android:layout_below="@id/login_cover"
-        android:id="@+id/back_"
-        android:visibility="gone"
-        />
 
-
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="REGISTER AS"
+    android:id="@+id/hint_as"
+    android:layout_below="@id/login_cover"
+    android:layout_centerHorizontal="true"
+    android:layout_marginTop="20dp"
+    android:textColor="#999"/>
     <TextView
         android:id="@+id/login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/login_cover"
+        android:layout_below="@id/hint_as"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/login_background"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/black_line_rect"
         android:paddingStart="50dp"
         android:paddingTop="10dp"
         android:paddingEnd="50dp"
         android:paddingBottom="10dp"
-        android:text="register as technician"
-        android:textColor="@color/white"
+        android:text="Technician"
+        android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold" />
     <TextView
@@ -207,16 +193,17 @@
         android:layout_below="@id/login"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
-        android:background="@drawable/blur_dark_blue_rect"
-        android:paddingStart="100dp"
+        android:layout_marginBottom="50dp"
+        android:background="@drawable/black_line_rect"
+        android:paddingStart="50dp"
         android:paddingTop="10dp"
-        android:paddingEnd="100dp"
+        android:paddingEnd="50dp"
         android:paddingBottom="10dp"
-        android:text="submit"
-        android:textColor="@color/white"
+        android:text="Client"
+        android:textColor="@color/black"
         android:textSize="20sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+         />
 
     <TextView
         android:id="@+id/hint"

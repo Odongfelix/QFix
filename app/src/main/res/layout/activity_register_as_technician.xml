@@ -6,29 +6,23 @@
     android:layout_height="match_parent"
     tools:context=".HomeActivity">
 
-    <ImageView
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_margin="10dp"
-        android:scaleType="fitXY"
-        android:src="@drawable/back" />
-
     <FrameLayout
         android:id="@+id/logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="10dp"
         android:layout_marginTop="50dp"
-        android:layout_marginBottom="10dp">
+        android:layout_centerHorizontal="true"
+        >
 
         <ImageView
+            android:src="@drawable/logo"
             android:layout_width="50dp"
-            android:layout_height="50dp"
             android:scaleType="fitXY"
-            android:src="@drawable/logo" />
+            android:layout_height="50dp"
+            />
 
     </FrameLayout>
+
 
     <ImageView
         android:id="@+id/back"
@@ -38,15 +32,15 @@
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
-        app:tint="@color/dark_red" />
+        android:src="@drawable/back" />
 
     <TextView
         android:id="@+id/login_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="100dp"
-        android:textColor="@color/light_blue"
+        android:layout_marginTop="60dp"
+        android:textColor="@color/dark_blue"
         android:textSize="40sp"
         android:textStyle="bold" />
 
@@ -68,118 +62,91 @@
             <EditText
                 android:id="@+id/email"
                 android:layout_width="match_parent"
-                android:layout_height="33dp"
+                android:layout_height="35dp"
                 android:layout_marginStart="5dp"
                 android:layout_toEndOf="@id/email_icon"
                 />
 
-            <LinearLayout
+            <TextView
+                android:layout_marginTop="5dp"
                 android:id="@+id/email_icon"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:layout_marginTop="5dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/black"
-                    android:text="Email" />
-                <View
-                    android:layout_marginStart="10dp"
-                    android:layout_marginEnd="10dp"
-                    android:layout_width="1dp"
-                    android:background="@color/black"
-                    android:layout_height="fill_parent"/>
-                <TextView
-                    android:textColor="@color/black"
-                    android:layout_marginTop="5dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Phone" />
-            </LinearLayout>
-
-
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:text="Name" />
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/password_cover"
+            android:layout_marginTop="20dp"
+            android:id="@+id/phone_cover"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/email_cover"
             android:layout_centerHorizontal="true"
             android:layout_marginStart="100dp"
-            android:layout_marginTop="10dp"
             android:padding="5dp">
 
             <EditText
-                android:id="@+id/password"
+                android:id="@+id/phone"
                 android:layout_width="match_parent"
-                android:layout_height="33dp"
-                android:layout_marginStart="5dp"
-                android:layout_toEndOf="@id/password_icon"
-
-                android:inputType="textPassword" />
+                android:layout_height="35dp"
+                android:inputType="phone"
+                android:layout_toEndOf="@id/phone_icon"
+                />
 
             <TextView
-                android:layout_marginTop="7dp"
-                android:textColor="@color/black"
-                android:id="@+id/password_icon"
+                android:id="@+id/phone_icon"
+                android:layout_marginTop="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Password" />
+                android:textColor="@color/black"
+                android:text="Business Name" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_marginTop="20dp"
+            android:id="@+id/location_cover"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/phone_cover"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="100dp"
+            android:padding="5dp">
+
+            <EditText
+                android:id="@+id/location"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_marginStart="5dp"
+                android:inputType="phone"
+                android:layout_toEndOf="@id/location_icon"
+                />
+
+            <TextView
+                android:id="@+id/location_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Repair Service"
+                android:layout_marginTop="5dp"
+                android:textColor="@color/black"/>
         </RelativeLayout>
 
 
     </RelativeLayout>
 
     <TextView
-        android:id="@+id/forgot"
+        android:id="@+id/submit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/login_cover"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:text="forgot password?"
-        android:textColor="@color/dark_red" />
-    <TextView
-        android:id="@+id/hint_as"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/forgot"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
-        android:text="LOGIN AS"
-        android:textColor="#999" />
-    <TextView
-        android:id="@+id/login"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/hint_as"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="50dp"
         android:background="@drawable/black_line_rect"
         android:paddingStart="50dp"
         android:paddingTop="10dp"
         android:paddingEnd="50dp"
         android:paddingBottom="10dp"
-        android:text="Technician"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/login_client"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/login"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="30dp"
-        android:background="@drawable/black_line_rect"
-        android:paddingStart="50dp"
-        android:paddingTop="10dp"
-        android:paddingEnd="50dp"
-        android:paddingBottom="10dp"
-        android:text="Client"
+        android:text="Submit"
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold" />
@@ -188,9 +155,10 @@
         android:id="@+id/hint"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/login_client"
+        android:layout_below="@id/submit"
         android:layout_centerHorizontal="true"
-        android:text="or Login from" />
+        android:layout_marginTop="100dp"
+        android:text="or Sign up with" />
 
     <LinearLayout
         android:id="@+id/alt"
@@ -208,8 +176,8 @@
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
             android:padding="10dp"
-            android:src="@drawable/facebook_colored"
-            app:tint="@color/dark_blue" />
+            app:tint="@color/dark_blue"
+            android:src="@drawable/facebook_colored" />
 
         <ImageView
             android:id="@+id/google"
@@ -220,8 +188,8 @@
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
             android:padding="10dp"
-            android:src="@drawable/google"
-            app:tint="@color/dark_blue" />
+            app:tint="@color/dark_blue"
+            android:src="@drawable/google" />
 
         <ImageView
             android:id="@+id/instagram"
@@ -232,18 +200,8 @@
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
             android:padding="10dp"
-            android:src="@drawable/instagram_colored"
-            app:tint="@color/dark_blue" />
+            app:tint="@color/dark_blue"
+            android:src="@drawable/instagram_colored" />
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/create_account"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/alt"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:text="Dont have an account? create one"
-        android:textColor="@color/dark_blue" />
 
 </RelativeLayout>

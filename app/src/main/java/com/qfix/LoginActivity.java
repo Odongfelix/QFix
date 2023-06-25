@@ -11,8 +11,11 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        findViewById(R.id.login_client).setOnClickListener(l -> {
+            startActivity(new Intent(LoginActivity.this, ServiceRequestActivity.class));
+        });
         findViewById(R.id.login).setOnClickListener(l -> {
-            startActivity(new Intent(LoginActivity.this, ClientDashBoard.class));
+            startActivity(new Intent(LoginActivity.this, TechnicianActivity.class));
         });
         findViewById(R.id.create_account).setOnClickListener(l -> {
             startActivity(new Intent(LoginActivity.this, RegistrationActivity.class));

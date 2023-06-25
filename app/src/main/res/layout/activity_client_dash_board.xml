@@ -6,237 +6,359 @@
     android:layout_height="match_parent"
     tools:context=".ClientDashBoard">
 
-    <ImageView
-        android:id="@+id/menu"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp"
-        android:padding="2dp"
-        android:src="@drawable/more"
-        app:tint="@color/dark_blue" />
-
-    <ImageView
-        android:id="@+id/cart"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp"
-        android:padding="2dp"
-        android:src="@drawable/cart"
-        app:tint="@color/dark_blue" />
-
-    <TextView
-        android:id="@+id/hint"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/menu"
-        android:layout_marginStart="30dp"
-        android:gravity="center"
-        android:text="What is broken?"
-        android:textSize="40sp"
-        android:textColor="@color/dark_blue"
-        android:textStyle="bold" />
-
     <RelativeLayout
-        android:id="@+id/search"
-        android:layout_width="match_parent"
+        android:id="@+id/drawer"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_below="@id/hint"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="20dp"
-        android:background="@drawable/blur_dark_blue_rect">
+        android:visibility="gone">
 
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:background="@android:color/transparent"
-            android:gravity="center"
-            android:hint="search appliance"
-            android:textSize="17sp"
-            android:minWidth="200dp" />
+        <ImageView
+            android:id="@+id/cancel"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/login_background"
+            android:padding="5dp"
+            android:src="@drawable/cancel"
+            app:tint="@color/white" />
+
+        <ImageView
+            android:id="@+id/dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:scaleType="fitXY"
+            android:src="@mipmap/test" />
+
+        <ImageView
+            android:id="@+id/pen"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_below="@id/name"
+            android:layout_centerHorizontal="true"
+            android:padding="7dp"
+            android:src="@drawable/pen" />
 
         <ImageView
             android:layout_width="35dp"
             android:layout_height="35dp"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="10dp"
-            android:padding="2dp"
-            android:src="@drawable/filter" />
-
-    </RelativeLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/search"
-        android:orientation="vertical">
+            android:layout_below="@id/name"
+            android:layout_toStartOf="@id/pen"
+            android:padding="10dp"
+            android:src="@drawable/camera" />
 
         <TextView
+            android:id="@+id/name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:text="Offers"
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            android:textSize="20sp" />
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/offers_background"
-                android:padding="10dp">
-
-                <TextView
-                    android:id="@+id/description"
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:text="10% cash back on screen replacement"
-                    android:textColor="@color/black" />
-
-                <ImageView
-                    android:layout_width="130dp"
-                    android:layout_height="150dp"
-                    android:layout_below="@id/description"
-                    android:layout_marginTop="5dp"
-                    android:scaleType="fitXY"
-                    android:src="@mipmap/screen" />
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/offers_background_black"
-                android:padding="10dp">
-
-                <TextView
-                    android:id="@+id/description2"
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:text="10% discount on lighting appliances"
-                    android:textColor="@color/white" />
-
-                <ImageView
-                    android:layout_width="130dp"
-                    android:layout_height="150dp"
-                    android:layout_below="@id/description2"
-                    android:layout_marginTop="5dp"
-                    android:scaleType="fitXY"
-                    android:src="@mipmap/hopeicon" />
-
-            </RelativeLayout>
-
-        </LinearLayout>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:orientation="vertical">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:text="We can fix.."
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            android:textSize="20sp" />
+            android:layout_below="@id/dp"
+            android:layout_centerHorizontal="true"
+            android:text="John Doe"
+            android:textColor="@color/dark_blue"
+            android:textSize="30sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@id/pen"
+            android:layout_marginTop="20dp"
             android:orientation="vertical">
 
             <LinearLayout
+                android:id="@+id/customer_support"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:background="@drawable/login_background"
-                    android:paddingStart="10dp"
-                    android:paddingTop="5dp"
-                    android:paddingEnd="10dp"
-                    android:paddingBottom="5dp"
-                    android:text="popular"
-                    android:textColor="@color/white" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:paddingStart="10dp"
-                    android:paddingTop="5dp"
-                    android:paddingEnd="10dp"
-                    android:paddingBottom="5dp"
-                    android:text="Kitchen"
-                    android:textColor="@color/black" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:paddingStart="10dp"
-                    android:paddingTop="5dp"
-                    android:paddingEnd="10dp"
-                    android:paddingBottom="5dp"
-                    android:text="Living room"
-                    android:textColor="@color/black" />
-
-
-            </LinearLayout>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:layout_margin="10dp"
-                android:background="@drawable/offers_background"
-                android:padding="10dp">
-
-                <ImageView
-                    android:id="@+id/image"
-                    android:layout_marginEnd="10dp"
-                    android:layout_width="40dp"
-                    android:src="@drawable/tv"
-                    android:layout_height="40dp" />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="fix TV set"
-                    android:layout_centerVertical="true"
-                    android:textColor="@color/black"
-                    android:layout_toEndOf="@id/image"/>
                 <ImageView
                     android:layout_width="35dp"
                     android:layout_height="35dp"
-                    android:src="@drawable/more_vertical"
-                    android:padding="3dp"
-                    android:layout_alignParentEnd="true"/>
+                    android:layout_below="@id/name"
+                    android:layout_toStartOf="@id/pen"
+                    android:padding="7dp"
+                    android:src="@drawable/raised_hand" />
 
-            </RelativeLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/dp"
+                    android:layout_centerHorizontal="true"
+                    android:text="Customer Support "
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp">
+
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_below="@id/name"
+                    android:layout_toStartOf="@id/pen"
+                    android:padding="5dp"
+                    android:src="@drawable/settings" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/dp"
+                    android:layout_centerHorizontal="true"
+                    android:text="settings "
+                    android:textSize="20sp" />
+            </LinearLayout>
+
         </LinearLayout>
-    </LinearLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_toEndOf="@id/drawer">
+
+        <ImageView
+            android:id="@+id/menu"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:padding="2dp"
+            android:src="@drawable/more"
+            app:tint="@color/dark_blue" />
+
+
+        <ImageView
+            android:id="@+id/cart"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+
+            android:src="@drawable/bag"
+            app:tint="@color/dark_blue" />
+
+        <TextView
+            android:id="@+id/hint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/menu"
+            android:layout_marginStart="30dp"
+            android:gravity="center"
+            android:text="What is broken?"
+            android:textColor="@color/dark_blue"
+            android:textSize="40sp"
+            android:textStyle="bold" />
+
+        <RelativeLayout
+            android:id="@+id/search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/hint"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/blur_dark_blue_rect">
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@android:color/transparent"
+                android:gravity="center"
+                android:hint="search appliance"
+                android:minWidth="200dp"
+                android:textSize="17sp" />
+
+            <ImageView
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="10dp"
+                android:padding="2dp"
+                android:src="@drawable/filter" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/search"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="Offers"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/offers_background"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:id="@+id/description"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:text="10% cash back on screen replacement"
+                        android:textColor="@color/black" />
+
+                    <ImageView
+                        android:layout_width="130dp"
+                        android:layout_height="150dp"
+                        android:layout_below="@id/description"
+                        android:layout_marginTop="5dp"
+                        android:scaleType="fitXY"
+                        android:src="@mipmap/screen" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/offers_background_black"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:id="@+id/description2"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:text="10% discount on lighting appliances"
+                        android:textColor="@color/white" />
+
+                    <ImageView
+                        android:layout_width="130dp"
+                        android:layout_height="150dp"
+                        android:layout_below="@id/description2"
+                        android:layout_marginTop="5dp"
+                        android:scaleType="fitXY"
+                        android:src="@mipmap/hopeicon" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="We can fix.."
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:background="@drawable/login_background"
+                        android:paddingStart="10dp"
+                        android:paddingTop="5dp"
+                        android:paddingEnd="10dp"
+                        android:paddingBottom="5dp"
+                        android:text="popular"
+                        android:textColor="@color/white" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:paddingStart="10dp"
+                        android:paddingTop="5dp"
+                        android:paddingEnd="10dp"
+                        android:paddingBottom="5dp"
+                        android:text="Kitchen"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:paddingStart="10dp"
+                        android:paddingTop="5dp"
+                        android:paddingEnd="10dp"
+                        android:paddingBottom="5dp"
+                        android:text="Living room"
+                        android:textColor="@color/black" />
+
+
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/offers_background"
+                    android:padding="10dp">
+
+                    <ImageView
+                        android:id="@+id/image"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginEnd="10dp"
+                        android:src="@drawable/tv" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toEndOf="@id/image"
+                        android:text="fix TV set"
+                        android:textColor="@color/black" />
+
+                    <ImageView
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:layout_alignParentEnd="true"
+                        android:padding="3dp"
+                        android:src="@drawable/more_vertical" />
+
+                </RelativeLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
 </RelativeLayout>

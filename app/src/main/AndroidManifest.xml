@@ -12,6 +12,21 @@
         android:theme="@style/Theme.QFix"
         tools:targetApi="31">
         <activity
+            android:name=".TechnicianActivity"
+            android:exported="false" />
+        <activity
+            android:name=".BookNowActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RegisterAsTechnicianActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CustomerSupport"
+            android:exported="false" />
+        <activity
+            android:name=".BookingManagementActivity"
+            android:exported="false" />
+        <activity
             android:name=".Cart"
             android:exported="false" />
         <activity
@@ -31,7 +46,8 @@
             android:exported="false" />
         <activity
             android:name=".LoginActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".HomeActivity"
             android:exported="true">
