@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background"
     tools:context=".HomeActivity">
 
     <FrameLayout
@@ -18,7 +19,7 @@
             android:src="@drawable/logo"
             android:layout_width="50dp"
             android:scaleType="fitXY"
-            android:layout_height="50dp"
+            android:layout_height="0dp"
             />
 
     </FrameLayout>
@@ -169,7 +170,7 @@
     android:layout_below="@id/login_cover"
     android:layout_centerHorizontal="true"
     android:layout_marginTop="20dp"
-    android:textColor="#999"/>
+    android:textColor="@color/black"/>
     <TextView
         android:id="@+id/login"
         android:layout_width="wrap_content"
@@ -177,13 +178,13 @@
         android:layout_below="@id/hint_as"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
-        android:background="@drawable/black_line_rect"
+        android:background="@drawable/quick_fix_button"
         android:paddingStart="50dp"
         android:paddingTop="10dp"
         android:paddingEnd="50dp"
         android:paddingBottom="10dp"
         android:text="Technician"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="20sp"
         android:textStyle="bold" />
     <TextView
@@ -194,13 +195,13 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="50dp"
-        android:background="@drawable/black_line_rect"
+        android:background="@drawable/quick_fix_button"
         android:paddingStart="50dp"
         android:paddingTop="10dp"
         android:paddingEnd="50dp"
         android:paddingBottom="10dp"
         android:text="Client"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="20sp"
         android:textStyle="bold"
          />
@@ -211,7 +212,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/login_client"
         android:layout_centerHorizontal="true"
-        android:text="or Sign up with" />
+        android:textColor="@color/black"
+        android:text="Or Sign up with" />
 
     <LinearLayout
         android:id="@+id/alt"
@@ -229,7 +231,6 @@
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
             android:padding="10dp"
-            app:tint="@color/dark_blue"
             android:src="@drawable/facebook_colored" />
 
         <ImageView
@@ -241,7 +242,6 @@
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
             android:padding="10dp"
-            app:tint="@color/dark_blue"
             android:src="@drawable/google" />
 
         <ImageView
@@ -253,7 +253,6 @@
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
             android:padding="10dp"
-            app:tint="@color/dark_blue"
             android:src="@drawable/instagram_colored" />
     </LinearLayout>
 

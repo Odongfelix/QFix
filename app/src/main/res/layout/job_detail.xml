@@ -15,7 +15,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/title"
+
             android:layout_centerHorizontal="true"
             android:layout_marginStart="100dp"
             android:layout_marginTop="30dp"
@@ -70,11 +70,10 @@
                     android:id="@+id/phone"
                     android:layout_width="match_parent"
                     android:layout_height="35dp"
-                    android:layout_toEndOf="@id/phone_icon"
                     />
 
                 <TextView
-                    android:id="@+id/phone_icon"
+                    android:id="@+id/phone_icon_"
                     android:layout_marginTop="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -169,7 +168,6 @@
                     android:src="@drawable/phone"
                     android:layout_marginStart="20dp"
                     android:layout_below="@+id/dp"
-                    android:id="@+id/phone_icon"
                     android:padding="9dp"/>
                 <TextView
                     android:layout_width="wrap_content"
@@ -187,15 +185,11 @@
                     android:layout_height="35dp"
                     android:src="@drawable/location"
                     android:layout_marginStart="20dp"
-                    android:layout_below="@+id/dp"
-                    android:id="@+id/phone_icon"
                     android:padding="9dp"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Banda near Shell"
-                    android:layout_below="@+id/dp"
-                    android:layout_toEndOf="@id/phone_icon"
                     android:layout_marginTop="5dp"/>
             </LinearLayout>
         </LinearLayout>
