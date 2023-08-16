@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginTop="10dp"
+    android:layout_height="wrap_content">
+    <androidx.constraintlayout.utils.widget.ImageFilterView
+        android:layout_marginStart="10dp"
+        android:id="@+id/profile"
+        app:round="10dp"
+        android:scaleType="centerCrop"
+        android:layout_width="40dp"
+        android:src="@drawable/washing_machine"
+        android:layout_height="40dp"/>
+
+    <ImageView
+        android:id="@+id/more"
+        android:layout_width="35dp"
+        android:layout_alignParentEnd="true"
+        android:padding="5dp"
+        android:src="@drawable/more_vertical"
+        android:layout_height="35dp"/>
+    <TextView
+        android:id="@+id/name"
+        android:layout_toEndOf="@+id/profile"
+        android:layout_marginStart="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Broken Phone Screen"
+        android:textSize="17sp"
+        android:textColor="@color/black"/>
+    <TextView
+        android:layout_toStartOf="@id/more"
+        android:layout_below="@id/name"
+        android:layout_toEndOf="@+id/profile"
+        android:layout_marginStart="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Doesnt show any thing but phone vibrste when charger is pluged"
+       />
+</RelativeLayout>

@@ -5,15 +5,25 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class HomeActivity extends AppCompatActivity {
+public class HomeActivity extends AccountActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        if (isRegistered()) {
+            startLoginActivity();
+            finish();
+        }
         setContentView(R.layout.activity_home);
         findViewById(R.id.get_started).setOnClickListener(g -> {
-            Intent i = new Intent(HomeActivity.this, LoginActivity.class);
-            startActivity(i);
+            startLoginActivity();
+            finish();
         });
+    }
+
+    private void startLoginActivity() {
+        Intent i = new Intent(HomeActivity.this, LoginActivity.class);
+        startActivity(i);
     }
 }

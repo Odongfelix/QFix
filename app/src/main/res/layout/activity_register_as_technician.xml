@@ -4,21 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background"
     tools:context=".HomeActivity">
 
     <FrameLayout
         android:id="@+id/logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
         android:layout_centerHorizontal="true"
-        >
+        android:layout_marginTop="50dp">
 
         <ImageView
-            android:src="@drawable/logo"
             android:layout_width="50dp"
-            android:scaleType="fitXY"
             android:layout_height="50dp"
+            android:scaleType="fitXY"
             />
 
     </FrameLayout>
@@ -64,53 +63,51 @@
                 android:layout_width="match_parent"
                 android:layout_height="35dp"
                 android:layout_marginStart="5dp"
-                android:layout_toEndOf="@id/email_icon"
-                />
+                android:layout_toEndOf="@id/email_icon" />
 
             <TextView
-                android:layout_marginTop="5dp"
                 android:id="@+id/email_icon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:text="Name" />
+                android:layout_marginTop="5dp"
+                android:text="Name"
+                android:textColor="@color/black" />
         </RelativeLayout>
 
         <RelativeLayout
-            android:layout_marginTop="20dp"
             android:id="@+id/phone_cover"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/email_cover"
             android:layout_centerHorizontal="true"
             android:layout_marginStart="100dp"
+            android:layout_marginTop="20dp"
             android:padding="5dp">
 
             <EditText
                 android:id="@+id/phone"
                 android:layout_width="match_parent"
                 android:layout_height="35dp"
-                android:inputType="phone"
                 android:layout_toEndOf="@id/phone_icon"
-                />
+                android:inputType="phone" />
 
             <TextView
                 android:id="@+id/phone_icon"
-                android:layout_marginTop="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:text="Business Name" />
+                android:layout_marginTop="5dp"
+                android:text="Business Name"
+                android:textColor="@color/black" />
         </RelativeLayout>
 
         <RelativeLayout
-            android:layout_marginTop="20dp"
             android:id="@+id/location_cover"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/phone_cover"
             android:layout_centerHorizontal="true"
             android:layout_marginStart="100dp"
+            android:layout_marginTop="20dp"
             android:padding="5dp">
 
             <EditText
@@ -118,17 +115,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="35dp"
                 android:layout_marginStart="5dp"
-                android:inputType="phone"
                 android:layout_toEndOf="@id/location_icon"
-                />
+                android:inputType="phone" />
 
             <TextView
                 android:id="@+id/location_icon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Repair Service"
                 android:layout_marginTop="5dp"
-                android:textColor="@color/black"/>
+                android:text="Repair Service"
+                android:textColor="@color/black" />
         </RelativeLayout>
 
 
@@ -141,13 +137,13 @@
         android:layout_below="@id/login_cover"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
-        android:background="@drawable/black_line_rect"
+        android:background="@drawable/quick_fix_button"
         android:paddingStart="50dp"
         android:paddingTop="10dp"
         android:paddingEnd="50dp"
         android:paddingBottom="10dp"
         android:text="Submit"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="20sp"
         android:textStyle="bold" />
 
@@ -158,7 +154,8 @@
         android:layout_below="@id/submit"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="100dp"
-        android:text="or Sign up with" />
+        android:textColor="@color/black"
+        android:text="Or Sign up with" />
 
     <LinearLayout
         android:id="@+id/alt"
@@ -176,8 +173,8 @@
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
             android:padding="10dp"
-            app:tint="@color/dark_blue"
-            android:src="@drawable/facebook_colored" />
+            android:src="@drawable/facebook_colored"
+            />
 
         <ImageView
             android:id="@+id/google"
@@ -188,8 +185,8 @@
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
             android:padding="10dp"
-            app:tint="@color/dark_blue"
-            android:src="@drawable/google" />
+            android:src="@drawable/google"
+           />
 
         <ImageView
             android:id="@+id/instagram"
@@ -200,8 +197,8 @@
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
             android:padding="10dp"
-            app:tint="@color/dark_blue"
-            android:src="@drawable/instagram_colored" />
+            android:src="@drawable/instagram_colored"
+            />
     </LinearLayout>
 
 </RelativeLayout>

@@ -5,7 +5,7 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class RegistrationActivity extends AppCompatActivity {
+public class RegistrationActivity extends AccountActivity implements Starter {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -14,8 +14,9 @@ public class RegistrationActivity extends AppCompatActivity {
         findViewById(R.id.login).setOnClickListener(l -> {
             startActivity(new Intent(RegistrationActivity.this, RegisterAsTechnicianActivity.class));
         });
-        findViewById(R.id.login_client).setOnClickListener(c->{
-            startActivity(new Intent(RegistrationActivity.this,ServiceRequestActivity.class));
+        findViewById(R.id.login_client).setOnClickListener(c -> {
+            setRegistered();
+            startActivity(this, LoginActivity.class);
         });
     }
 }
