@@ -6,6 +6,7 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class HomeActivity extends AccountActivity {
+    //todo, this is a test
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
