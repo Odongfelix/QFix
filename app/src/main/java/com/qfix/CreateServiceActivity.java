@@ -20,7 +20,7 @@ public class CreateServiceActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_service);
         iv = findViewById(R.id.dp);
-        name = findViewById(R.id.name);
+        name = findViewById(R.id.phone_);
         title = findViewById(R.id.job);
         Intent i = getIntent();
         name.setText(i.getStringExtra(Constants.NAME));

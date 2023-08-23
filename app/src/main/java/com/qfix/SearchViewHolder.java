@@ -1,6 +1,5 @@
 package com.qfix;
 
-import android.content.Context;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -16,7 +15,7 @@ public class SearchViewHolder extends RecyclerView.ViewHolder {
 
     public SearchViewHolder(@NonNull View itemView) {
         super(itemView);
-        name = itemView.findViewById(R.id.name);
+        name = itemView.findViewById(R.id.phone_);
         circularImageView = itemView.findViewById(R.id.dp);
         reviews = itemView.findViewById(R.id.reviews);
     }

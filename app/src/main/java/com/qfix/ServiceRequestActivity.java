@@ -21,6 +21,7 @@ public class ServiceRequestActivity extends AppCompatActivity {
         setContentView(R.layout.activity_service_request);
         findViewById(R.id.book_now_home).setOnClickListener(b -> bookNow());
         findViewById(R.id.book_now_shop).setOnClickListener(b -> bookNow());
+        findViewById(R.id.filter).setOnClickListener(f->new HelpDialog(this));
     }
 
     private void bookNow() {

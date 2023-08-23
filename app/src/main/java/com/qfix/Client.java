@@ -1,7 +1,15 @@
 package com.qfix;
 
 public class Client {
-    private String name,email,phone,location,passWord;
+    private String name,email,phone,location,passWord,userID;
+
+    public void setUserID(String userID) {
+        this.userID = userID;
+    }
+
+    public String getUserID() {
+        return userID;
+    }
 
     public String getPassWord() {
         return passWord;

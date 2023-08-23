@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "872140631472",
+    "project_id": "quickfix-ab26a",
+    "storage_bucket": "quickfix-ab26a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:872140631472:android:55f0c3f9ac2b5951853a75",
+        "android_client_info": {
+          "package_name": "com.qfix"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "872140631472-lhuv5ghohvo2ur4cqtmnndgtivrd0md5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAawkxsGhFaSdb7PROsyzcDeZfPw1DY-fM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "872140631472-lhuv5ghohvo2ur4cqtmnndgtivrd0md5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

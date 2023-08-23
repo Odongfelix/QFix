@@ -58,19 +58,23 @@
         android:layout_marginBottom="10dp"
         android:padding="10dp"
         android:id="@+id/go_to_cart"
-        android:background="@drawable/black_line_rect"
+        android:background="@drawable/quick_fix_button"
         android:layout_alignParentBottom="true">
         <TextView
+            android:layout_marginStart="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Go to cart"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="18sp"
             android:textStyle="bold"/>
         <ImageView
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="10dp"
             android:layout_marginStart="10dp"
             android:layout_width="20dp"
             android:layout_height="20dp"
-            android:src="@drawable/cart"/>
+            android:src="@drawable/cart"
+            app:tint="@color/white" />
     </LinearLayout>
 </RelativeLayout>

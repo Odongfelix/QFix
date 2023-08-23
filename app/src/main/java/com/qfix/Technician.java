@@ -3,9 +3,23 @@ package com.qfix;
 import android.graphics.Bitmap;
 
 public class Technician {
-    private String name, businessName, repairService, location, email, passWord;
+    public Technician() {
+
+    }
+
+    private String name, businessName,
+            repairService, location,
+            email, phone,userID;
     private Bitmap dp;
     private int stars;
+
+    public String getUserID() {
+        return userID;
+    }
+
+    public void setUserID(String userID) {
+        this.userID = userID;
+    }
 
     public int getStars() {
         return stars;
@@ -68,11 +82,11 @@ public class Technician {
         this.email = email;
     }
 
-    public String getPassWord() {
-        return passWord;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setPassWord(String passWord) {
-        this.passWord = passWord;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 }

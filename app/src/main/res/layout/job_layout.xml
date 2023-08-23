@@ -1,41 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_marginTop="10dp"
-    android:layout_height="wrap_content">
-    <androidx.constraintlayout.utils.widget.ImageFilterView
-        android:layout_marginStart="10dp"
-        android:id="@+id/profile"
-        app:round="10dp"
-        android:scaleType="centerCrop"
-        android:layout_width="40dp"
-        android:src="@drawable/washing_machine"
-        android:layout_height="40dp"/>
+    android:layout_height="wrap_content"
+    android:layout_marginTop="20dp">
 
     <ImageView
         android:id="@+id/more"
         android:layout_width="35dp"
+        android:layout_height="35dp"
         android:layout_alignParentEnd="true"
+        android:layout_marginEnd="5dp"
         android:padding="5dp"
-        android:src="@drawable/more_vertical"
-        android:layout_height="35dp"/>
+        android:rotation="90"
+        android:src="@drawable/more_vertical" />
+
     <TextView
-        android:id="@+id/name"
-        android:layout_toEndOf="@+id/profile"
-        android:layout_marginStart="10dp"
+        android:id="@+id/job"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
         android:text="Broken Phone Screen"
-        android:textSize="17sp"
-        android:textColor="@color/black"/>
+        android:textColor="@color/black"
+        android:textSize="17sp" />
+
     <TextView
-        android:layout_toStartOf="@id/more"
-        android:layout_below="@id/name"
-        android:layout_toEndOf="@+id/profile"
-        android:layout_marginStart="10dp"
+        android:id="@+id/job_detail"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/job"
+        android:layout_toStartOf="@id/show_job_detail"
+        android:layout_marginStart="20dp"
+        android:text="@string/lorem" />
+
+    <TextView
+        android:id="@+id/show_job_detail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Doesnt show any thing but phone vibrste when charger is pluged"
-       />
+        android:layout_below="@id/job"
+        android:layout_toStartOf="@id/more"
+        android:layout_marginEnd="20dp"
+        android:textColor="@color/purple_700"
+        android:text="Details" />
 </RelativeLayout>

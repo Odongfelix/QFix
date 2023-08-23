@@ -5,24 +5,28 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.firebase.auth.FirebaseAuth;
 
 public class AccountActivity extends DataBaseActivity {
     protected boolean isRegistered() {
-        SharedPreferences sharedPreferences = getSharedPreferences(Constants.PRIMITIVES, Context.MODE_PRIVATE);
-        return sharedPreferences.getBoolean(Constants.REGISTERED,false);
-    }
-
-    protected void setRegistered(){
-        SharedPreferences sharedPreferences = getSharedPreferences(Constants.PRIMITIVES, Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putBoolean(Constants.REGISTERED,true);
-        editor.apply();
+        return FirebaseAuth.getInstance().getCurrentUser() != null;
     }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //haven't the use for overriding this but that's nt a problem
+        //haven't seen the use for overriding this but that's nt a problem
     }
+
+    protected boolean isClientAccount() {
+        SharedPreferences prefs = getSharedPreferences(Constants.PRIMITIVES, MODE_PRIVATE);
+        return prefs.getBoolean(Constants.ACCOUNT_TYPE_CLIENT, true);
+    }
+
+    protected void saveAccountType(boolean client) {
+        SharedPreferences prefs = getSharedPreferences(Constants.PRIMITIVES, MODE_PRIVATE);
+        prefs.edit().putBoolean(Constants.ACCOUNT_TYPE_CLIENT, client).apply();
+    }
+
 }

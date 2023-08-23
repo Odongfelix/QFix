@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">QFix</string>
+    <string name="empty_service">"You have not yet requested for any repair services. Click on the plus icon to request for repair services"</string>
+    <string name="lorem">Lorem ipsum text is some long text that programmers use as a dummy text bla bla bla</string>
 </resources>

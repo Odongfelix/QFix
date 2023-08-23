@@ -50,7 +50,7 @@
                 android:src="@mipmap/test" />
 
             <TextView
-                android:id="@+id/name"
+                android:id="@+id/phone_"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -64,7 +64,7 @@
                 android:id="@+id/job"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/name"
+                android:layout_below="@id/phone_"
                 android:layout_toEndOf="@id/dp"
                 android:ellipsize="end"
                 android:maxLines="1"

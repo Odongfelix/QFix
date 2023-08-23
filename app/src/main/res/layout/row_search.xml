@@ -17,7 +17,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:text="Mr Phone"
-        android:id="@+id/name"
+        android:id="@+id/phone_"
         android:textColor="@color/black" />
 
     <LinearLayout
