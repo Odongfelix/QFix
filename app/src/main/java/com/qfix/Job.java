@@ -2,10 +2,22 @@ package com.qfix;
 
 import androidx.annotation.NonNull;
 
-public class Job {
+import java.io.Serializable;
+
+public class Job implements Serializable {
     private boolean isNew, isInProgress, isComplete;
     private Client client;
     private Electronic electronic;
+
+    private Technician technician;
+
+    public void setTechnician(Technician technician) {
+        this.technician = technician;
+    }
+
+    public Technician getTechnician() {
+        return technician;
+    }
 
     @NonNull
     @Override

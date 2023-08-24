@@ -2,7 +2,9 @@ package com.qfix;
 
 import android.graphics.Bitmap;
 
-public class Technician {
+import java.io.Serializable;
+
+public class Technician implements Serializable {
     public Technician() {
 
     }
@@ -88,5 +90,20 @@ public class Technician {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    @Override
+    public String toString() {
+        return "Technician{" +
+                "name='" + name + '\'' +
+                ", businessName='" + businessName + '\'' +
+                ", repairService='" + repairService + '\'' +
+                ", location='" + location + '\'' +
+                ", email='" + email + '\'' +
+                ", phone='" + phone + '\'' +
+                ", userID='" + userID + '\'' +
+                ", dp=" + dp +
+                ", stars=" + stars +
+                '}';
     }
 }

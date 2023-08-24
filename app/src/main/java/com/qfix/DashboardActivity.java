@@ -1,12 +1,24 @@
 package com.qfix;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.QuerySnapshot;
+
+import java.util.List;
 
 public class DashboardActivity extends TechnicianActivity implements Starter {
 
@@ -62,12 +74,40 @@ public class DashboardActivity extends TechnicianActivity implements Starter {
         super.onCreate(savedInstanceState);
         View add = findViewById(R.id.add);
         add.setVisibility(View.VISIBLE);
-        add.setOnClickListener(v -> startActivity(this, ServiceRequestActivity.class));
+        add.setOnClickListener(v -> {
+            startActivity(DashboardActivity.this, ServiceRequestActivity.class);
+            finish();
+        });
 
         emptyService = getString(R.string.empty_service);
 
         adapter.setEmptyImage(R.drawable.outline_remove_shopping_cart_24);
         adapter.setEmptyJobText(emptyService);
+        adapter.setClient(true);
+
         setTitle("Repair status");
+    }
+
+    @Override
+    protected void loadRecyclerViewData() {
+        FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
+        firebaseFirestore.collection(Constants.JOB_COLLECTION).whereEqualTo("client.userID", FirebaseAuth.getInstance().getCurrentUser().getUid())
+                .addSnapshotListener(this, new EventListener<QuerySnapshot>() {
+                    @Override
+                    public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
+                        if (error != null) {
+                            Toast.makeText(DashboardActivity.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+                        if (value == null) return;
+                        List<DocumentSnapshot> documents = value.getDocuments();
+                        Toast.makeText(DashboardActivity.this, ""+documents.size(), Toast.LENGTH_SHORT).show();
+                        for (DocumentSnapshot d :
+                                documents) {
+                            Job job = new Job();
+                            Log.d("electronic",d.toString());
+                        }
+                    }
+                });
     }
 }

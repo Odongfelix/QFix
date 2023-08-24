@@ -1,31 +1,30 @@
 package com.qfix;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class TechnicianActivity extends AppCompatActivity implements Starter, ExceptionHandler {
     protected JobAdapter adapter = new JobAdapter();
     private TextView title;
 
-    private ArrayList<Job> newJobs, inProgress, completed;
+    protected ArrayList<Job> newJobs, inProgress, completed;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,8 +50,8 @@ public class TechnicianActivity extends AppCompatActivity implements Starter, Ex
         Electronic electronic = new Electronic();
         electronic.setName("Samsang");
         electronic.setModel("S22 Ultra");
-        electronic.setProblem("Broken Screen");
-        electronic.setProblemDescription("Screen got broken, it can still display but the sensor doesn't work");
+        electronic.setManufacturer("Broken Screen");
+        electronic.setDetails("Screen got broken, it can still display but the sensor doesn't work");
         e1.setElectronic(electronic);
         this.newJobs.add(e1);
 
@@ -84,12 +83,12 @@ public class TechnicianActivity extends AppCompatActivity implements Starter, Ex
         adapter.setOnMoreClickListener(new OnMoreClickListener() {
             @Override
             public void onMoreClicked(Job job) {
-                new MoreOptionsDialog(TechnicianActivity.this,job);
+                new MoreOptionsDialog(TechnicianActivity.this, job);
             }
 
             @Override
             public void onDetailsClicked(Job job) {
-                new JobDetailsDialog(TechnicianActivity.this,job);
+                new JobDetailsDialog(TechnicianActivity.this, job);
             }
         });
         adapter.setEmptyImage(R.drawable.outline_remove_shopping_cart_24);

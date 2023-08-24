@@ -1,7 +1,9 @@
 package com.qfix;
 
-public class Client {
-    private String name,email,phone,location,passWord,userID;
+import java.io.Serializable;
+
+public class Client implements Serializable {
+    private String name="No Name",email,phone,location,passWord,userID;
 
     public void setUserID(String userID) {
         this.userID = userID;
@@ -49,5 +51,17 @@ public class Client {
 
     public void setLocation(String location) {
         this.location = location;
+    }
+
+    @Override
+    public String toString() {
+        return "Client{" +
+                "name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", phone='" + phone + '\'' +
+                ", location='" + location + '\'' +
+                ", passWord='" + passWord + '\'' +
+                ", userID='" + userID + '\'' +
+                '}';
     }
 }

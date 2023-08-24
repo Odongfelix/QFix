@@ -15,6 +15,12 @@ public class JobAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private String emptyJobText;
     private int emptyImage;
 
+    private boolean isClient;
+
+    public void setClient(boolean client) {
+        isClient = client;
+    }
+
     public void setEmptyImage(int emptyImage) {
         this.emptyImage = emptyImage;
     }
@@ -60,16 +66,23 @@ public class JobAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             Job job1 = getJob(position);
             if (job1 == null) return;
             jobViewHolder.set(job1);
-            jobViewHolder.itemView.findViewById(R.id.show_job_detail).setOnClickListener(v -> {
+            View detail = jobViewHolder.itemView.findViewById(R.id.show_job_detail);
+
+            detail.setOnClickListener(v -> {
                 if (onMoreClickListener != null) {
                     onMoreClickListener.onDetailsClicked(job1);
                 }
             });
-            jobViewHolder.itemView.findViewById(R.id.more).setOnClickListener(v -> {
+            View option = jobViewHolder.itemView.findViewById(R.id.more);
+            option.setOnClickListener(v -> {
                 if (onMoreClickListener != null) {
                     onMoreClickListener.onMoreClicked(job1);
                 }
             });
+            if (isClient) {
+                detail.setVisibility(View.GONE);
+                option.setVisibility(View.GONE);
+            }
         }
     }
 

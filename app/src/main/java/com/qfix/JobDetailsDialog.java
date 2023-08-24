@@ -22,9 +22,9 @@ public class JobDetailsDialog extends BottomSheetDialog {
         TextView model = decor.findViewById(R.id.model);
         model.setText(electronic.getModel());
         TextView problem = decor.findViewById(R.id.problem);
-        problem.setText(electronic.getProblem());
+        problem.setText(electronic.getManufacturer());
         TextView description = decor.findViewById(R.id.password);
-        description.setText(electronic.getProblemDescription());
+        description.setText(electronic.getDetails());
         Client client = job.getClient();
         TextView name = decor.findViewById(R.id.phone_);
         name.setText(client.getName());

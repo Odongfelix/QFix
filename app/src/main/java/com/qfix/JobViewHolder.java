@@ -1,6 +1,5 @@
 package com.qfix;
 
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -25,7 +24,7 @@ public class JobViewHolder extends RecyclerView.ViewHolder {
         if (electronic == null) {
             return;
         }
-        this.job.setText(electronic.getProblem());
-        jobDetail.setText(electronic.getProblemDescription());
+        this.job.setText(electronic.getName());
+        jobDetail.setText(electronic.getDetails());
     }
 }

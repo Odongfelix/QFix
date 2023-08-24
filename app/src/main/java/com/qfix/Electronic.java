@@ -1,7 +1,9 @@
 package com.qfix;
 
-public class Electronic {
-    private String model,name,problem,problemDescription;
+import java.io.Serializable;
+
+public class Electronic implements Serializable {
+    private String model,name, manufacturer, details;
 
     public String getModel() {
         return model;
@@ -19,19 +21,19 @@ public class Electronic {
         this.name = name;
     }
 
-    public String getProblem() {
-        return problem;
+    public String getManufacturer() {
+        return manufacturer;
     }
 
-    public void setProblem(String problem) {
-        this.problem = problem;
+    public void setManufacturer(String manufacturer) {
+        this.manufacturer = manufacturer;
     }
 
-    public String getProblemDescription() {
-        return problemDescription;
+    public String getDetails() {
+        return details;
     }
 
-    public void setProblemDescription(String problemDescription) {
-        this.problemDescription = problemDescription;
+    public void setDetails(String details) {
+        this.details = details;
     }
 }

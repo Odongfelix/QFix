@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ServiceRequestActivity">
@@ -12,7 +17,7 @@
         android:layout_height="35dp"
         android:padding="5dp"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
         android:src="@drawable/baseline_help_outline_24"
         app:tint="@color/dark_blue" />
@@ -22,26 +27,32 @@
     android:layout_height="wrap_content"
     android:text="Service Request"
     android:id="@+id/title"
-    android:textSize="25sp"
+    android:textSize="30sp"
     android:textStyle="bold"
-    android:layout_centerHorizontal="true"
+    android:layout_marginStart="20dp"
     android:layout_marginTop="5dp"
     android:textColor="@color/dark_blue"
     />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/black"
+        android:layout_below="@id/title"/>
 
     <TextView
+        android:textStyle="bold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/title"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="100dp"
         android:layout_marginTop="30dp"
-        android:textStyle="bold"
         android:text="Please provide details about your device"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:id="@+id/bla_bla"
-        android:textSize="19sp" />
+        android:textSize="18sp" />
     <RelativeLayout
         android:id="@+id/login_cover"
         android:layout_width="match_parent"
@@ -58,9 +69,10 @@
             android:padding="5dp">
 
             <EditText
+
                 android:id="@+id/device_name"
                 android:layout_width="match_parent"
-                android:layout_height="35dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
                 android:layout_toEndOf="@id/device"
                 />
@@ -68,6 +80,7 @@
             <TextView
                 android:layout_marginTop="5dp"
                 android:id="@+id/device"
+                android:textStyle="bold"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
@@ -84,14 +97,16 @@
             android:padding="5dp">
 
             <EditText
+
                 android:id="@+id/phone"
                 android:layout_width="match_parent"
-                android:layout_height="35dp"
+                android:layout_height="wrap_content"
                 android:layout_toEndOf="@id/phone_icon"
                 />
 
             <TextView
                 android:id="@+id/phone_icon"
+                android:textStyle="bold"
                 android:layout_marginTop="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -109,9 +124,10 @@
             android:padding="5dp">
 
             <EditText
+
                 android:id="@+id/location"
                 android:layout_width="match_parent"
-                android:layout_height="35dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
                 android:layout_toEndOf="@id/location_icon"
                 />
@@ -121,6 +137,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Manufacturer"
+                android:textStyle="bold"
                 android:layout_marginTop="5dp"
                 android:textColor="@color/black"/>
         </RelativeLayout>
@@ -138,14 +155,17 @@
             <EditText
                 android:id="@+id/password"
                 android:layout_width="match_parent"
-                android:layout_height="35dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
                 android:layout_toEndOf="@id/password_icon"
-                android:background="@drawable/black_line_rect" />
+                android:background="@drawable/black_line_rect"
+                android:minHeight="100dp"
+                android:padding="10dp" />
 
             <TextView
                 android:id="@+id/password_icon"
                 android:layout_marginTop="10dp"
+                android:textStyle="bold"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
@@ -187,7 +207,7 @@
                 <EditText
                     android:id="@+id/date"
                     android:layout_width="100dp"
-                    android:layout_height="35dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginStart="5dp"
                     android:layout_toEndOf="@id/date_icon"
                     />
@@ -195,6 +215,7 @@
                 <TextView
                     android:layout_marginTop="5dp"
                     android:id="@+id/date_icon"
+                    android:textStyle="bold"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/black"
@@ -209,13 +230,14 @@
                 <EditText
                     android:id="@+id/time"
                     android:layout_width="100dp"
-                    android:layout_height="35dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginStart="5dp"
                     android:layout_toEndOf="@id/time_icon_shop"
                     />
 
                 <TextView
                     android:layout_marginTop="5dp"
+                    android:textStyle="bold"
                     android:id="@+id/time_icon_shop"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -272,12 +294,13 @@
                 <EditText
                     android:id="@+id/date_home"
                     android:layout_width="100dp"
-                    android:layout_height="35dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginStart="5dp"
                     android:layout_toEndOf="@id/date_icon_home"
                     />
 
                 <TextView
+                    android:textStyle="bold"
                     android:layout_marginTop="5dp"
                     android:id="@+id/date_icon_home"
                     android:layout_width="wrap_content"
@@ -294,12 +317,13 @@
                 <EditText
                     android:id="@+id/time_home"
                     android:layout_width="100dp"
-                    android:layout_height="35dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginStart="5dp"
                     android:layout_toEndOf="@id/time_icon_home"
                     />
 
                 <TextView
+                    android:textStyle="bold"
                     android:layout_marginTop="5dp"
                     android:id="@+id/time_icon_home"
                     android:layout_width="wrap_content"
@@ -309,6 +333,7 @@
             </RelativeLayout>
         </LinearLayout>
         <TextView
+            android:layout_marginBottom="30dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="100dp"
@@ -325,3 +350,6 @@
     </RelativeLayout>
 
 </RelativeLayout>
+
+
+    </androidx.core.widget.NestedScrollView>
