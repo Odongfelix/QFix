@@ -11,7 +11,7 @@
         android:layout_height="35dp"
         android:layout_margin="10dp"
         android:scaleType="fitXY"
-        android:src="@drawable/back" />
+       />
 
     <FrameLayout
         android:id="@+id/logo"
@@ -38,7 +38,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
-        app:tint="@color/dark_red" />
+         />
 
     <TextView
         android:id="@+id/login_text"
@@ -123,15 +123,31 @@
 
     </RelativeLayout>
 
-    <TextView
+    <LinearLayout
         android:id="@+id/forgot"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/login_cover"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:text="forgot password?"
-        android:textColor="@color/dark_red" />
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_marginStart="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="FORGOT PASSWORD"
+            android:textSize="20sp"
+            android:textColor="@color/dark_red" />
+        <ImageView
+            android:layout_marginStart="10dp"
+            android:layout_width="30dp"
+            android:layout_marginEnd="10dp"
+            android:layout_height="30dp"
+            android:padding="2dp"
+            android:src="@drawable/baseline_lock_open_24"
+            app:tint="#090" />
+    </LinearLayout>
     <TextView
         android:id="@+id/hint_as"
         android:layout_width="wrap_content"
@@ -142,7 +158,8 @@
         android:text="LOGIN AS"
         android:textStyle="bold"
         android:textColor="@color/black" />
-    <TextView
+
+    <LinearLayout
         android:id="@+id/login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -152,30 +169,59 @@
         android:background="@drawable/quick_fix_button"
         android:paddingStart="50dp"
         android:paddingTop="10dp"
-        android:paddingEnd="50dp"
+        android:paddingEnd="70dp"
         android:paddingBottom="10dp"
-        android:text="Technician"
+       android:gravity="center_vertical"
         android:textColor="@color/white"
         android:textSize="20sp"
-        android:textStyle="bold" />
+        android:textStyle="bold" >
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/baseline_construction_24"
+            app:tint="@color/white" />
+        <TextView
+            android:layout_marginStart="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Technician"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </LinearLayout>
 
-    <TextView
+    <LinearLayout
         android:id="@+id/login_client"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/login"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:layout_marginBottom="30dp"
+        android:layout_marginBottom="10dp"
         android:background="@drawable/quick_fix_button"
-        android:paddingStart="50dp"
+        android:paddingStart="70dp"
         android:paddingTop="10dp"
-        android:paddingEnd="50dp"
+        android:paddingEnd="80dp"
         android:paddingBottom="10dp"
-        android:text="Client"
+      android:gravity="center_vertical"
         android:textColor="@color/white"
         android:textSize="20sp"
-        android:textStyle="bold" />
+        android:textStyle="bold" >
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/outline_shopping_cart_24"
+            app:tint="@color/white" />
+        <TextView
+            android:layout_marginStart="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Client"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:layout_marginEnd="20dp"
+            android:textStyle="bold" />
+    </LinearLayout>
 
     <TextView
         android:id="@+id/hint"
@@ -183,62 +229,65 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/login_client"
         android:layout_centerHorizontal="true"
-        android:text="Or login using"
         android:textColor="@color/black"
         android:textStyle="bold"/>
 
     <LinearLayout
+        android:padding="4dp"
         android:id="@+id/alt"
+        android:gravity="center_vertical"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/hint"
+        android:background="@drawable/outline_button"
         android:layout_centerHorizontal="true">
 
         <ImageView
-            android:id="@+id/face_book"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginBottom="10dp"
-            android:padding="10dp"
-            android:src="@drawable/facebook_colored"
-            />
-
-        <ImageView
             android:id="@+id/google"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginBottom="10dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:padding="10dp"
-            android:src="@drawable/google"
-             />
+            android:layout_marginStart="10dp"
+            android:src="@drawable/google" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sign in with google"
+            android:textColor="@color/black"
+            android:layout_marginEnd="20dp"
+            android:textSize="20sp"/>
 
-        <ImageView
-            android:id="@+id/instagram"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginBottom="10dp"
-            android:padding="10dp"
-            android:src="@drawable/instagram_colored"
-            />
     </LinearLayout>
 
-    <TextView
+    <LinearLayout
         android:id="@+id/create_account"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:layout_below="@id/alt"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:text="Dont have an account? create one"
-        android:textColor="@color/dark_blue" />
+        android:layout_marginTop="50dp"
+        android:padding="10dp"
+        android:background="@drawable/quick_fix_button"
+        android:layout_width="wrap_content"
+        android:gravity="center_vertical|center_horizontal"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_marginTop="10dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/outline_account_circle_24"
+            app:tint="@color/white" />
+
+        <TextView
+            android:layout_margin="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:text="Create account"
+            android:textStyle="bold"
+            android:textColor="@color/white" />
+
+    </LinearLayout>
 
 </RelativeLayout>

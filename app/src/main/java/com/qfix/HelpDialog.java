@@ -15,27 +15,22 @@ public class HelpDialog extends BottomSheetDialog {
         setContentView(R.layout.help_dialog);
         show();
         View decor = getWindow().getDecorView();
-        decor.findViewById(R.id.whatsapp).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String phoneNumberWithCountryCode = "+256705 954303";
-                String message = "This message was sent from Quick Fix ";
-
-                context.startActivity(
-                        new Intent(Intent.ACTION_VIEW,
-                                Uri.parse(
-                                        String.format("https://api.whatsapp.com/send?phone=%s&text=%s", phoneNumberWithCountryCode, message)
-                                )
-                        )
-                );
-            }
+        decor.findViewById(R.id.whatsapp).setOnClickListener(v -> {
+            String phoneNumberWithCountryCode = "+256705 954303";
+            String message = "*This message was sent from Quick Fix*";
+            context.startActivity(
+                    new Intent(Intent.ACTION_VIEW,
+                            Uri.parse(
+                                    String.format("https://api.whatsapp.com/send?phone=%s&text=%s",
+                                            phoneNumberWithCountryCode,
+                                            message)
+                            )
+                    )
+            );
         });
-        decor.findViewById(R.id.call).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent dial = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:+256772660112"));
-                context.startActivity(dial);
-            }
+        decor.findViewById(R.id.call).setOnClickListener(v -> {
+            Intent dial = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:+256772660112"));
+            context.startActivity(dial);
         });
     }
 }

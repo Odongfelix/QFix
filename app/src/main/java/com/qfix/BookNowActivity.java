@@ -11,6 +11,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -18,10 +24,11 @@ import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.firestore.SetOptions;
 
 import java.util.ArrayList;
 
-public class BookNowActivity extends AppCompatActivity implements ExceptionHandler, Starter {
+public class BookNowActivity extends AppCompatActivity implements ExceptionHandler, Starter, OnMapReadyCallback {
     private final ArrayList<Technician> technicians = new ArrayList<>();
     private Job job;
 
@@ -29,6 +36,10 @@ public class BookNowActivity extends AppCompatActivity implements ExceptionHandl
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_now);
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.map);
+        if (mapFragment != null)
+            mapFragment.getMapAsync(this);
         findViewById(R.id.back).setOnClickListener(v -> finish());
         RecyclerView recyclerView = findViewById(R.id.recycler_view);
         findViewById(R.id.go_to_cart).setOnClickListener(v -> startActivity(new Intent(this, DashboardActivity.class)));
@@ -59,7 +70,7 @@ public class BookNowActivity extends AppCompatActivity implements ExceptionHandl
         recyclerView.setAdapter(adapter);
 
         FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
-        firebaseFirestore.collection(Constants.TECHNICIAN_COLLECTION).whereEqualTo("location", "Banda").addSnapshotListener(this, (value, error) -> {
+        firebaseFirestore.collection(Constants.TECHNICIAN_COLLECTION).whereEqualTo("location", "kirinya").addSnapshotListener(this, (value, error) -> {
             if (error != null || value == null) {
                 if (error != null) {
                     Throwable cause = error.getCause();
@@ -68,23 +79,21 @@ public class BookNowActivity extends AppCompatActivity implements ExceptionHandl
                 }
                 return;
             }
+            technicians.clear();
             for (DocumentSnapshot d : value.getDocuments()) {
-                Object o = d.get("name");
-                if (o == null) continue;
-                String name = o.toString();
-                o = d.get("repairService");
-                if (o == null) continue;
-                String service = o.toString();
-                Technician t = new Technician(name, service);
-                o = d.get("userID");
-                if (o == null) continue;
-                t.setUserID(o.toString());
-                technicians.add(0, t);
-                technicians.add(0, t);
-                technicians.add(0, t);
-                adapter.notifyDataSetChanged();
+                Technician o = d.toObject(Technician.class);
+                technicians.add(o);
             }
+            adapter.notifyDataSetChanged();
         });
     }
 
+    @Override
+    public void onMapReady(@NonNull GoogleMap googleMap) {
+        LatLng sydney = new LatLng(-34, 151);
+        googleMap.addMarker(new MarkerOptions()
+                .position(sydney)
+                .title("Marker in Sydney"));
+        googleMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+    }
 }

@@ -26,8 +26,8 @@ public class RegisterAsTechnicianDialog extends BottomSheetDialog {
                         businessName.getText().toString(),
                         repairService.getText().toString());
         });
-        show();
         getBehavior().setState(BottomSheetBehavior.STATE_EXPANDED);
+        show();
     }
 
     public void setOnRegisterListener(OnRegisterListener onRegisterListener) {

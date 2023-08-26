@@ -4,32 +4,36 @@
 
     <application
         android:allowBackup="true"
-        android:usesCleartextTraffic="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.QFix"
+        android:usesCleartextTraffic="true"
         tools:targetApi="31">
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="${MAPS_API_KEY}" />
+
         <activity
             android:name=".TechnicianActivity"
             android:exported="false" />
         <activity
-            android:name=".BookNowActivity"
+            android:name=".MapsActivity"
             android:exported="false" />
         <activity
-            android:name=".RegisterAsTechnicianActivity"
+            android:name=".BookNowActivity"
             android:exported="false" />
+
         <activity
             android:name=".CustomerSupport"
             android:exported="false" />
         <activity
             android:name=".BookingManagementActivity"
             android:exported="false" />
-        <activity
-            android:name=".Cart"
-            android:exported="false" />
+
         <activity
             android:name=".ClientDashBoard"
             android:exported="false" />

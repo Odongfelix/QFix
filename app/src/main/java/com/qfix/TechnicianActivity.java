@@ -5,17 +5,18 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.Nullable;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
@@ -24,7 +25,9 @@ public class TechnicianActivity extends AppCompatActivity implements Starter, Ex
     protected JobAdapter adapter = new JobAdapter();
     private TextView title;
 
-    protected ArrayList<Job> newJobs, inProgress, completed;
+    protected ArrayList<Job> newJobs, inProgress, completed, selectedTab;
+    protected FirebaseUser user;
+    private final NonDuplicateList<Job> masterList = new NonDuplicateList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,25 +43,8 @@ public class TechnicianActivity extends AppCompatActivity implements Starter, Ex
         this.newJobs = new ArrayList<>();
         this.inProgress = new ArrayList<>();
         this.completed = new ArrayList<>();
+        selectedTab = this.newJobs;
 
-        Job e1 = new Job();
-        Client c = new Client();
-        c.setName("Odong felix");
-        c.setPhone("0123456789");
-        c.setLocation("Mbale");
-        e1.setClient(c);
-        Electronic electronic = new Electronic();
-        electronic.setName("Samsang");
-        electronic.setModel("S22 Ultra");
-        electronic.setManufacturer("Broken Screen");
-        electronic.setDetails("Screen got broken, it can still display but the sensor doesn't work");
-        e1.setElectronic(electronic);
-        this.newJobs.add(e1);
-
-
-        this.inProgress.add(e1);
-
-        this.completed.add(e1);
 
         adapter.setJobs(this.newJobs);
 
@@ -99,7 +85,7 @@ public class TechnicianActivity extends AppCompatActivity implements Starter, Ex
         jobsRecyclerView.setLayoutManager(linearLayoutManager);
         jobsRecyclerView.setAdapter(adapter);
 
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        user = FirebaseAuth.getInstance().getCurrentUser();
         FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
         if (user != null) {
             firebaseFirestore.collection(Constants.TECHNICIAN_COLLECTION)
@@ -125,7 +111,6 @@ public class TechnicianActivity extends AppCompatActivity implements Starter, Ex
                             });
             loadRecyclerViewData();
         }
-
     }
 
     private void select(View selected, View[] from) {
@@ -139,7 +124,37 @@ public class TechnicianActivity extends AppCompatActivity implements Starter, Ex
     }
 
     protected void loadRecyclerViewData() {
+        FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
+        firebaseFirestore.collection(Constants.JOB_COLLECTION).get().addOnCompleteListener(this, task -> {
+            if (task.isSuccessful()) {
+                for (DocumentSnapshot d : task.getResult().getDocuments()) {
+                    Job job = d.toObject(Job.class);
+                    if (job == null) continue;
+                    if (job.getTechnician().getUserID().equalsIgnoreCase(user.getUid())) {
+                        DocumentReference reference = d.getReference();
+                        reference.addSnapshotListener(TechnicianActivity.this,
+                                (value, error) -> {
+                                    if (error != null || value == null) return;
+                                    Job j = value.toObject(Job.class);
+                                    if (j == null) {
+                                        Toast.makeText(TechnicianActivity.this, "null", Toast.LENGTH_SHORT).show();
+                                        return;
+                                    }
+                                    Toast.makeText(TechnicianActivity.this, "" + j, Toast.LENGTH_SHORT).show();
+                                    j.setDocRef(reference);
+                                    masterList.add(j);
+                                    organise();
+                                });
+                    }
+                }
+            } else showTaskException(task, TechnicianActivity.this);
+        });
+    }
 
+    private void addJob(Job job) {
+        if (job.isNew()) newJobs.add(job);
+        if (job.isComplete()) completed.add(job);
+        if (job.isInProgress()) inProgress.add(job);
     }
 
     protected void changeTabs(View[] tabs) {
@@ -148,5 +163,20 @@ public class TechnicianActivity extends AppCompatActivity implements Starter, Ex
 
     protected void tabClicked(int index) {
 
+    }
+
+    protected void organise() {
+        clearTabs();
+        for (Job j :
+                masterList) {
+            addJob(j);
+        }
+        adapter.setJobs(selectedTab);
+    }
+
+    private void clearTabs() {
+        newJobs.clear();
+        inProgress.clear();
+        completed.clear();
     }
 }

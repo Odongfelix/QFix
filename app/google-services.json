@@ -14,7 +14,15 @@
       },
       "oauth_client": [
         {
-          "client_id": "872140631472-lhuv5ghohvo2ur4cqtmnndgtivrd0md5.apps.googleusercontent.com",
+          "client_id": "872140631472-hmscsmb15tm810g0rs227fj6gsn4uttc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.qfix",
+            "certificate_hash": "29604a95d70e32fc9285b89cc96951ffc3361dc5"
+          }
+        },
+        {
+          "client_id": "872140631472-7tqmmtksjs5nrvloj1j7dl4e8hmu30f6.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
@@ -27,7 +35,7 @@
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "872140631472-lhuv5ghohvo2ur4cqtmnndgtivrd0md5.apps.googleusercontent.com",
+              "client_id": "872140631472-7tqmmtksjs5nrvloj1j7dl4e8hmu30f6.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

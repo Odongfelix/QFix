@@ -31,7 +31,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
-        android:src="@drawable/back" />
+        />
 
     <TextView
         android:id="@+id/login_text"
@@ -163,12 +163,13 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:text="REGISTER AS"
+    android:textStyle="bold"
     android:id="@+id/hint_as"
     android:layout_below="@id/login_cover"
     android:layout_centerHorizontal="true"
     android:layout_marginTop="20dp"
     android:textColor="@color/black"/>
-    <TextView
+    <LinearLayout
         android:id="@+id/login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -178,30 +179,58 @@
         android:background="@drawable/quick_fix_button"
         android:paddingStart="50dp"
         android:paddingTop="10dp"
-        android:paddingEnd="50dp"
+        android:paddingEnd="70dp"
         android:paddingBottom="10dp"
-        android:text="Technician"
+        android:gravity="center_vertical"
         android:textColor="@color/white"
         android:textSize="20sp"
-        android:textStyle="bold" />
-    <TextView
+        android:textStyle="bold" >
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/baseline_construction_24"
+            app:tint="@color/white" />
+        <TextView
+            android:layout_marginStart="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Technician"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+    <LinearLayout
         android:id="@+id/login_client"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/login"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:layout_marginBottom="50dp"
+        android:layout_marginBottom="10dp"
         android:background="@drawable/quick_fix_button"
-        android:paddingStart="50dp"
+        android:paddingStart="70dp"
         android:paddingTop="10dp"
-        android:paddingEnd="50dp"
+        android:paddingEnd="80dp"
         android:paddingBottom="10dp"
-        android:text="Client"
+        android:gravity="center_vertical"
         android:textColor="@color/white"
         android:textSize="20sp"
-        android:textStyle="bold"
-         />
+        android:textStyle="bold" >
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/outline_shopping_cart_24"
+            app:tint="@color/white" />
+        <TextView
+            android:layout_marginStart="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Client"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:layout_marginEnd="20dp"
+            android:textStyle="bold" />
+    </LinearLayout>
 
     <TextView
         android:id="@+id/hint"
@@ -210,47 +239,33 @@
         android:layout_below="@id/login_client"
         android:layout_centerHorizontal="true"
         android:textColor="@color/black"
-        android:text="Or Sign up with" />
+        />
 
     <LinearLayout
         android:id="@+id/alt"
+        android:padding="4dp"
+        android:gravity="center_vertical"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/hint"
+        android:background="@drawable/outline_button"
         android:layout_centerHorizontal="true">
 
         <ImageView
-            android:id="@+id/face_book"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginBottom="10dp"
-            android:padding="10dp"
-            android:src="@drawable/facebook_colored" />
-
-        <ImageView
             android:id="@+id/google"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginBottom="10dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:padding="10dp"
-            android:src="@drawable/google" />
+            android:src="@drawable/google"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sign up with google"
+            android:textColor="@color/black"
+            android:layout_marginEnd="10dp"
+            android:textSize="20sp"/>
 
-        <ImageView
-            android:id="@+id/instagram"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginBottom="10dp"
-            android:padding="10dp"
-            android:src="@drawable/instagram_colored" />
     </LinearLayout>
 
 </RelativeLayout>

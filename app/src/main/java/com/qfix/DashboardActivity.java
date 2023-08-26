@@ -1,5 +1,6 @@
 package com.qfix;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,6 +12,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
@@ -91,23 +94,17 @@ public class DashboardActivity extends TechnicianActivity implements Starter {
     @Override
     protected void loadRecyclerViewData() {
         FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
-        firebaseFirestore.collection(Constants.JOB_COLLECTION).whereEqualTo("client.userID", FirebaseAuth.getInstance().getCurrentUser().getUid())
-                .addSnapshotListener(this, new EventListener<QuerySnapshot>() {
-                    @Override
-                    public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
-                        if (error != null) {
-                            Toast.makeText(DashboardActivity.this, error.getMessage(), Toast.LENGTH_SHORT).show();
-                            return;
-                        }
-                        if (value == null) return;
-                        List<DocumentSnapshot> documents = value.getDocuments();
-                        Toast.makeText(DashboardActivity.this, ""+documents.size(), Toast.LENGTH_SHORT).show();
-                        for (DocumentSnapshot d :
-                                documents) {
-                            Job job = new Job();
-                            Log.d("electronic",d.toString());
-                        }
+        firebaseFirestore.collection(Constants.JOB_COLLECTION).get().addOnCompleteListener(this, new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if (task.isSuccessful()) {
+                    for (DocumentSnapshot d : task.getResult().getDocuments()) {
+                        Job job = d.toObject(Job.class);
+                        newJobs.add(job);
                     }
-                });
+                    adapter.setJobs(newJobs);
+                } else showTaskException(task, DashboardActivity.this);
+            }
+        });
     }
 }

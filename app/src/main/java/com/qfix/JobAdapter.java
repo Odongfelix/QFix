@@ -105,4 +105,17 @@ public class JobAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public int getItemCount() {
         return jobs.isEmpty() ? 1 : jobs.size();
     }
+
+    public void doIf(Act act, IF condition) {
+        for (Job job : jobs) {
+            if (condition.isValid(job)) act.perform(job);
+        }
+    }
+
+    public void removeIf(Job job, IF condition) {
+        if (condition.isValid(job)) {
+            jobs.remove(job);
+            notifyDataSetChanged();
+        }
+    }
 }

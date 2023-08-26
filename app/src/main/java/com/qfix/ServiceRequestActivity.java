@@ -19,6 +19,7 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -26,8 +27,8 @@ import com.google.firebase.firestore.QuerySnapshot;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ServiceRequestActivity extends AppCompatActivity implements ExceptionHandler,Starter {
-    private EditText name,model,manufacturer,details;
+public class ServiceRequestActivity extends AppCompatActivity implements ExceptionHandler, Starter {
+    private EditText name, model, manufacturer, details;
     private Client thisClient;
 
     @Override
@@ -41,24 +42,14 @@ public class ServiceRequestActivity extends AppCompatActivity implements Excepti
         findViewById(R.id.book_now_home).setOnClickListener(b -> bookNow());
         findViewById(R.id.book_now_shop).setOnClickListener(b -> bookNow());
         findViewById(R.id.filter).setOnClickListener(f -> new HelpDialog(this));
-        //jobs --> auto --> (clientID,techID,other job things)
 
+        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+        if (currentUser == null) return;
         FirebaseFirestore.getInstance().collection(Constants.CLIENT_COLLECTION)
-                .document(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                .document(currentUser.getUid())
                 .get().addOnCompleteListener(this, task -> {
                     if (task.isSuccessful()) {
-                        try {
-                            thisClient = new Client();
-                            DocumentSnapshot d = task.getResult();
-                            thisClient.setEmail(d.get("email").toString());
-                            thisClient.setLocation(d.get("location").toString());
-                            thisClient.setName(d.get("name").toString());
-                            thisClient.setPhone(d.get("phone").toString());
-                            thisClient.setUserID(d.get("userID").toString());
-                            Log.d("service request", thisClient.toString());
-                        } catch (Exception e) {
-                            Toast.makeText(this, ""+e, Toast.LENGTH_SHORT).show();
-                        }
+                        thisClient = task.getResult().toObject(Client.class);
                     } else showTaskException(task, ServiceRequestActivity.this);
                 });
     }
@@ -77,7 +68,7 @@ public class ServiceRequestActivity extends AppCompatActivity implements Excepti
         Job job = new Job();
         job.setElectronic(electronic);
         job.setClient(thisClient);
-        intent.putExtra("job",job);
+        intent.putExtra("job", job);
         startActivity(intent);
     }
 

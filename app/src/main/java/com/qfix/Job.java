@@ -1,6 +1,9 @@
 package com.qfix;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
+import com.google.firebase.firestore.DocumentReference;
 
 import java.io.Serializable;
 
@@ -10,6 +13,17 @@ public class Job implements Serializable {
     private Electronic electronic;
 
     private Technician technician;
+
+    private transient DocumentReference docRef;
+
+    public void setDocRef(DocumentReference docRef) {
+        this.docRef = docRef;
+        docRef.getId();
+    }
+
+    public DocumentReference getDocRef() {
+        return docRef;
+    }
 
     public void setTechnician(Technician technician) {
         this.technician = technician;
@@ -64,5 +78,14 @@ public class Job implements Serializable {
 
     public void setElectronic(Electronic electronic) {
         this.electronic = electronic;
+    }
+
+    @Override
+    public boolean equals(@Nullable Object obj) {
+        if (docRef == null) return false;
+        if (obj instanceof Job) {
+            return docRef.getId().equals(((Job) obj).getDocRef().getId());
+        }
+        return false;
     }
 }
