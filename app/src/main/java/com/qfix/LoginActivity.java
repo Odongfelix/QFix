@@ -25,37 +25,33 @@ public class LoginActivity extends AccountActivity implements Starter, Text, Exc
         password = findViewById(R.id.password);
 
         FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
-
-        firebaseAuth.useEmulator("10.0.2.2", 9099);
-
         FirebaseFirestore db = FirebaseFirestore.getInstance();
-        db.useEmulator("10.0.2.2", 8080);
 
-        findViewById(R.id.forgot).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (isEmpty(email.getText())) {
-                    Toast.makeText(LoginActivity.this, "You must provide your email", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                firebaseAuth.sendPasswordResetEmail(email.getText().toString()).addOnCompleteListener(LoginActivity.this, new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        if (task.isSuccessful())
-                            Toast.makeText(LoginActivity.this, "email sent to " + email.getText(), Toast.LENGTH_SHORT).show();
-                        else {
-                            Exception exception = task.getException();
-                            if (exception == null) return;
-                            Throwable t = exception.getCause();
-                            if (t == null) {
-                                Toast.makeText(LoginActivity.this, "An error occurred", Toast.LENGTH_SHORT).show();
-                                return;
-                            }
-                            Toast.makeText(LoginActivity.this, "could not send an email to " + email.getText() + " because " + t.getMessage(), Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
+        /*firebaseAuth.useEmulator("10.0.2.2", 9099);
+        db.useEmulator("10.0.2.2", 8080);*/
+
+        findViewById(R.id.forgot).setOnClickListener(v -> {
+            if (isEmpty(email.getText())) {
+                Toast.makeText(LoginActivity.this, "You must provide your email", Toast.LENGTH_SHORT).show();
+                return;
             }
+            firebaseAuth.sendPasswordResetEmail(email.getText().toString()).addOnCompleteListener(LoginActivity.this, new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(@NonNull Task<Void> task) {
+                    if (task.isSuccessful())
+                        Toast.makeText(LoginActivity.this, "email sent to " + email.getText(), Toast.LENGTH_SHORT).show();
+                    else {
+                        Exception exception = task.getException();
+                        if (exception == null) return;
+                        Throwable t = exception.getCause();
+                        if (t == null) {
+                            Toast.makeText(LoginActivity.this, "An error occurred", Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+                        Toast.makeText(LoginActivity.this, "could not send an email to " + email.getText() + " because " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
         });
 
         FirebaseUser user = firebaseAuth.getCurrentUser();

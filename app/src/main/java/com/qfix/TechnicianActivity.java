@@ -1,6 +1,7 @@
 package com.qfix;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -27,7 +28,7 @@ public class TechnicianActivity extends AppCompatActivity implements Starter, Ex
 
     protected ArrayList<Job> newJobs, inProgress, completed, selectedTab;
     protected FirebaseUser user;
-    private final NonDuplicateList<Job> masterList = new NonDuplicateList<>();
+    protected final MainList<Job> masterList = new MainList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -136,13 +137,17 @@ public class TechnicianActivity extends AppCompatActivity implements Starter, Ex
                                 (value, error) -> {
                                     if (error != null || value == null) return;
                                     Job j = value.toObject(Job.class);
+                                    Log.d("job found", "job found " + j);
                                     if (j == null) {
                                         Toast.makeText(TechnicianActivity.this, "null", Toast.LENGTH_SHORT).show();
                                         return;
                                     }
-                                    Toast.makeText(TechnicianActivity.this, "" + j, Toast.LENGTH_SHORT).show();
+                                    Log.d("TechnicianActivity.this", "is new " + j + j.isNew());
+                                    Log.d("TechnicianActivity.this", "is complete" + j + j.isComplete());
+                                    Log.d("TechnicianActivity.this", "is in progress" + j + j.isInProgress());
                                     j.setDocRef(reference);
                                     masterList.add(j);
+                                    Log.d("jobs", "jobs " + masterList.size());
                                     organise();
                                 });
                     }
@@ -151,7 +156,7 @@ public class TechnicianActivity extends AppCompatActivity implements Starter, Ex
         });
     }
 
-    private void addJob(Job job) {
+    protected void addJob(Job job) {
         if (job.isNew()) newJobs.add(job);
         if (job.isComplete()) completed.add(job);
         if (job.isInProgress()) inProgress.add(job);
@@ -167,8 +172,7 @@ public class TechnicianActivity extends AppCompatActivity implements Starter, Ex
 
     protected void organise() {
         clearTabs();
-        for (Job j :
-                masterList) {
+        for (Job j : masterList) {
             addJob(j);
         }
         adapter.setJobs(selectedTab);
@@ -178,5 +182,6 @@ public class TechnicianActivity extends AppCompatActivity implements Starter, Ex
         newJobs.clear();
         inProgress.clear();
         completed.clear();
+        adapter.setJobs(selectedTab);
     }
 }

@@ -92,6 +92,7 @@ public class RegistrationActivity extends AccountActivity implements Starter, Ex
                     }
                     googleClient = new Client();
                     googleClient.setLocation(location);
+                    startActivityForResult(googleSignInClient.getSignInIntent(), signInCode);
                 });
             }
         }));
@@ -100,12 +101,12 @@ public class RegistrationActivity extends AccountActivity implements Starter, Ex
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseFirestore = FirebaseFirestore.getInstance();
 
-        try {
+        /*try {
             firebaseAuth.useEmulator("10.0.2.2", 9099);
             firebaseFirestore.useEmulator("10.0.2.2", 8080);
         } catch (Exception ignored) {
 
-        }
+        }*/
 
 
         findViewById(R.id.login).setOnClickListener(l -> {
@@ -158,10 +159,10 @@ public class RegistrationActivity extends AccountActivity implements Starter, Ex
     }
 
     private void saveTechnician(FirebaseUser user, Technician technician) {
-        saveAccountType(false);
         firebaseFirestore.collection(Constants.TECHNICIAN_COLLECTION).document(user.getUid())
                 .set(technician).addOnCompleteListener(RegistrationActivity.this, task1 -> {
                     if (task1.isSuccessful()) {
+                        saveAccountType(false);
                         startActivity(RegistrationActivity.this, TechnicianActivity.class);
                         finish();
                     } else showTaskException(task1, this);
@@ -194,11 +195,11 @@ public class RegistrationActivity extends AccountActivity implements Starter, Ex
         if (requestCode == signInCode && resultCode == Activity.RESULT_OK) {
             Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
             GoogleSignInAccount result = task.getResult();
-            email.setText(result.getEmail());
             AuthCredential authCredential = GoogleAuthProvider.getCredential(result.getIdToken(), null);
             if (clientAccount) registerClient(authCredential);
             else registerTechnician(authCredential);
-        }
+        } else
+            Toast.makeText(this, "Process failed due to unKnown error", Toast.LENGTH_SHORT).show();
     }//https://quickfix-ab26a.firebaseapp.com/__/auth/handler
 
     private void registerTechnician(AuthCredential authCredential) {
@@ -223,7 +224,22 @@ public class RegistrationActivity extends AccountActivity implements Starter, Ex
 
     private void registerClient(AuthCredential authCredential) {
         firebaseAuth.signInWithCredential(authCredential).addOnCompleteListener(this, task -> {
-
+            if (task.isSuccessful()) {
+                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                if (user == null) {
+                    Toast.makeText(this, "Couldn't get information about you from google", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                googleClient.setUserID(user.getUid());
+                FirebaseFirestore.getInstance().collection(Constants.CLIENT_COLLECTION).document(user.getUid())
+                        .set(googleClient).addOnCompleteListener(RegistrationActivity.this,
+                                task1 -> {
+                                    if (task1.isSuccessful()) {
+                                        saveAccountType(true);
+                                        startActivity(RegistrationActivity.this, DashboardActivity.class);
+                                    } else showTaskException(task1, RegistrationActivity.this);
+                                });
+            } else showTaskException(task, this);
         });
     }
 

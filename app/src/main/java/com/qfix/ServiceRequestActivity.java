@@ -70,6 +70,7 @@ public class ServiceRequestActivity extends AppCompatActivity implements Excepti
         job.setClient(thisClient);
         intent.putExtra("job", job);
         startActivity(intent);
+        finish();
     }
 
     @Override

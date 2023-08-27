@@ -6,19 +6,41 @@ import androidx.annotation.Nullable;
 import com.google.firebase.firestore.DocumentReference;
 
 import java.io.Serializable;
+import java.util.Random;
 
 public class Job implements Serializable {
-    private boolean isNew, isInProgress, isComplete;
+    private boolean isNew = true, isInProgress, isComplete,rejected;
     private Client client;
     private Electronic electronic;
 
     private Technician technician;
 
+    private long id;
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public boolean isRejected() {
+        return rejected;
+    }
+
+    public void setRejected(boolean rejected) {
+        this.rejected = rejected;
+    }
+
     private transient DocumentReference docRef;
+
+    public Job() {
+        id = System.nanoTime() + new Random().nextLong() + hashCode(); //probability of being unique is not soo high
+    }
 
     public void setDocRef(DocumentReference docRef) {
         this.docRef = docRef;
-        docRef.getId();
     }
 
     public DocumentReference getDocRef() {
@@ -82,9 +104,8 @@ public class Job implements Serializable {
 
     @Override
     public boolean equals(@Nullable Object obj) {
-        if (docRef == null) return false;
         if (obj instanceof Job) {
-            return docRef.getId().equals(((Job) obj).getDocRef().getId());
+            return id == ((Job) obj).getId();
         }
         return false;
     }

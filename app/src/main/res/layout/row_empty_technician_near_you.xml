@@ -22,11 +22,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/a"
-            android:layout_marginStart="100dp"
-            android:layout_marginEnd="100dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginEnd="50dp"
             android:layout_marginBottom="20dp"
             android:gravity="center_horizontal"
-            android:text="Looks like there are no technicians near you"
+            android:text="Looks like there are no technicians here, select a different place on the map"
             android:textSize="20sp" />
     </RelativeLayout>
 </RelativeLayout>

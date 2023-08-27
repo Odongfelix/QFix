@@ -27,7 +27,7 @@ public class HomeActivity extends AccountActivity {
     }
 
     private void startLoginActivity() {
-        Intent i = new Intent(HomeActivity.this, BookNowActivity.class);
+        Intent i = new Intent(HomeActivity.this, LoginActivity.class);
         startActivity(i);
     }
 }

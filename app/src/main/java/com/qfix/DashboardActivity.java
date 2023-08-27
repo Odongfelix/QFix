@@ -67,7 +67,7 @@ public class DashboardActivity extends TechnicianActivity implements Starter {
             adapter.notifyItemChanged(0);
             return;
         }
-        adapter.setEmptyImage(R.drawable.outline_remove_shopping_cart_24);
+        adapter.setEmptyImage(R.drawable.baseline_add_shopping_cart_24);
         adapter.setEmptyJobText(emptyService);
         adapter.notifyItemChanged(0);
     }
@@ -84,11 +84,18 @@ public class DashboardActivity extends TechnicianActivity implements Starter {
 
         emptyService = getString(R.string.empty_service);
 
-        adapter.setEmptyImage(R.drawable.outline_remove_shopping_cart_24);
+        adapter.setEmptyImage(R.drawable.baseline_add_shopping_cart_24);
         adapter.setEmptyJobText(emptyService);
         adapter.setClient(true);
 
         setTitle("Repair status");
+    }
+
+    @Override
+    protected void addJob(Job job) {
+        if (job.isComplete()) newJobs.add(job);
+        if (job.isInProgress()) inProgress.add(job);
+        if (job.isRejected()) completed.add(job);
     }
 
     @Override
@@ -100,9 +107,17 @@ public class DashboardActivity extends TechnicianActivity implements Starter {
                 if (task.isSuccessful()) {
                     for (DocumentSnapshot d : task.getResult().getDocuments()) {
                         Job job = d.toObject(Job.class);
-                        newJobs.add(job);
+                        if (job == null) return;
+                        if (job.getClient().getUserID().equals(user.getUid())) {
+                            d.getReference().addSnapshotListener(DashboardActivity.this, (value, error) -> {
+                                if (value == null || error != null) return;
+                                Job job1 = value.toObject(Job.class);
+                                if (job1 == null) return;
+                                masterList.add(job1);
+                                organise();
+                            });
+                        }
                     }
-                    adapter.setJobs(newJobs);
                 } else showTaskException(task, DashboardActivity.this);
             }
         });
