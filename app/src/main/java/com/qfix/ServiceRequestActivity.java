@@ -27,6 +27,9 @@ import com.google.firebase.firestore.QuerySnapshot;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Activity for requesting repair services
+ */
 public class ServiceRequestActivity extends AppCompatActivity implements ExceptionHandler, Starter {
     private EditText name, model, manufacturer, details;
     private Client thisClient;

@@ -2,6 +2,9 @@ package com.qfix;
 
 import java.io.Serializable;
 
+/**
+ * The client
+ */
 public class Client implements Serializable {
     private String name="No Name",email,phone,location,passWord,userID;
 

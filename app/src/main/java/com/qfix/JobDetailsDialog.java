@@ -9,6 +9,9 @@ import androidx.annotation.NonNull;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 
+/**
+ * Dialog for displaying job details
+ */
 public class JobDetailsDialog extends BottomSheetDialog {
     public JobDetailsDialog(@NonNull Context context,Job job) {
         super(context);

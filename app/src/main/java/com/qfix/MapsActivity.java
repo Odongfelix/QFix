@@ -13,6 +13,10 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+
+/**
+ * Google maps activity
+ */
 public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     @Override

@@ -5,6 +5,9 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.Task;
 
+/**
+ * Interface fo handling exceptions
+ */
 public interface ExceptionHandler {
     default void showTaskException(Task<?> task, Context context) {
         Exception e = task.getException();

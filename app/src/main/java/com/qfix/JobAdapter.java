@@ -9,6 +9,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
+/**
+ * Adapter for displaying jobs
+ */
 public class JobAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private final ArrayList<Job> jobs = new ArrayList<>();
 

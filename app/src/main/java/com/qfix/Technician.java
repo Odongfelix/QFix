@@ -4,6 +4,9 @@ import android.graphics.Bitmap;
 
 import java.io.Serializable;
 
+/**
+ * Technician class
+ */
 public class Technician implements Serializable {
     public Technician() {
 

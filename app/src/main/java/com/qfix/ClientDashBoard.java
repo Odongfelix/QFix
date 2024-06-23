@@ -12,6 +12,10 @@ import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
 
+/**
+ * Activity for showing the client dash board
+ * implementation details are straight forward
+ */
 public class ClientDashBoard extends AppCompatActivity {
     private View content, drawer;
 

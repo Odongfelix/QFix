@@ -14,6 +14,8 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 public class LoginActivity extends AccountActivity implements Starter, Text, ExceptionHandler {
+
+   //email and password fields
     private EditText email, password;
 
     @Override
@@ -25,11 +27,8 @@ public class LoginActivity extends AccountActivity implements Starter, Text, Exc
         password = findViewById(R.id.password);
 
         FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-        /*firebaseAuth.useEmulator("10.0.2.2", 9099);
-        db.useEmulator("10.0.2.2", 8080);*/
-
+       //when you click on forgot password
         findViewById(R.id.forgot).setOnClickListener(v -> {
             if (isEmpty(email.getText())) {
                 Toast.makeText(LoginActivity.this, "You must provide your email", Toast.LENGTH_SHORT).show();
@@ -54,6 +53,8 @@ public class LoginActivity extends AccountActivity implements Starter, Text, Exc
             });
         });
 
+
+        //check to see if the current user is client or technician
         FirebaseUser user = firebaseAuth.getCurrentUser();
         if (user != null) {
             if (isClientAccount())
@@ -63,7 +64,7 @@ public class LoginActivity extends AccountActivity implements Starter, Text, Exc
             finish();
         }
 
-        //todo, check if the client is registered before getting all crazy
+        //logging in a client
         findViewById(R.id.login_client).setOnClickListener(l -> {
             if (isEmpty(email.getText()) || isEmpty(password.getText())) {
                 Toast.makeText(this, "Password and email are required for this operation", Toast.LENGTH_SHORT).show();
@@ -81,6 +82,8 @@ public class LoginActivity extends AccountActivity implements Starter, Text, Exc
                         }
                     });
         });
+
+        //logging in technician
         findViewById(R.id.login).setOnClickListener(l -> {
             if (isEmpty(email.getText()) || isEmpty(password.getText())) {
                 Toast.makeText(this, "Password and email are required for this operation", Toast.LENGTH_SHORT).show();
@@ -99,10 +102,12 @@ public class LoginActivity extends AccountActivity implements Starter, Text, Exc
                         }
                     });
         });
+
+        //starting activity for creating account
         findViewById(R.id.create_account).setOnClickListener(l -> {
             startActivity(this, RegistrationActivity.class);
             finish();
         });
     }
-    //todo, remember to update SHA 1 to the release version
+
 }

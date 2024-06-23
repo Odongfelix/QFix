@@ -53,8 +53,8 @@ public class BookNowActivity extends AppCompatActivity implements ExceptionHandl
             finish();
         });
 
-
         job = (Job) getIntent().getSerializableExtra("job");
+        job.setInProgress(true);
 
         adapter = new TechnicianAdapter(technicians);
         adapter.setListener(technician -> {
@@ -89,7 +89,7 @@ public class BookNowActivity extends AppCompatActivity implements ExceptionHandl
                                 Toast.makeText(BookNowActivity.this, "Error retrieving your location", Toast.LENGTH_SHORT).show();
                                 return;
                             }
-                            firebaseFirestore.collection(Constants.TECHNICIAN_COLLECTION).whereEqualTo("location", client.getLocation()).addSnapshotListener(BookNowActivity.this, (value, error) -> {
+                            firebaseFirestore.collection(Constants.TECHNICIAN_COLLECTION).whereEqualTo("location", client.getLocation().toLowerCase()).addSnapshotListener(BookNowActivity.this, (value, error) -> {
                                 if (error != null || value == null) {
                                     if (error != null) {
                                         Throwable cause = error.getCause();

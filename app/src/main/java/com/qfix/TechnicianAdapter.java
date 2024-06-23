@@ -8,6 +8,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
+/**
+ * Adapter for technicians
+ */
 public class TechnicianAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private ArrayList<Technician> technicians;
     private final int empty = 1;

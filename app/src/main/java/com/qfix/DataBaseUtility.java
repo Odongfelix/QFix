@@ -1,5 +1,7 @@
 package com.qfix;
 
+/**
+ * Utility for sqlite
+ */
 public class DataBaseUtility {
-    public static String[] ACCOUNT_COLUMNS = {"email", "phone", "location", "password"};
 }

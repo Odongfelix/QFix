@@ -8,7 +8,9 @@ import androidx.annotation.NonNull;
 
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
-
+/**
+ * Dialog for registering as technicians
+ */
 public class RegisterAsTechnicianDialog extends BottomSheetDialog {
     private OnRegisterListener onRegisterListener;
 

@@ -101,25 +101,22 @@ public class DashboardActivity extends TechnicianActivity implements Starter {
     @Override
     protected void loadRecyclerViewData() {
         FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
-        firebaseFirestore.collection(Constants.JOB_COLLECTION).get().addOnCompleteListener(this, new OnCompleteListener<QuerySnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                if (task.isSuccessful()) {
-                    for (DocumentSnapshot d : task.getResult().getDocuments()) {
-                        Job job = d.toObject(Job.class);
-                        if (job == null) return;
-                        if (job.getClient().getUserID().equals(user.getUid())) {
-                            d.getReference().addSnapshotListener(DashboardActivity.this, (value, error) -> {
-                                if (value == null || error != null) return;
-                                Job job1 = value.toObject(Job.class);
-                                if (job1 == null) return;
-                                masterList.add(job1);
-                                organise();
-                            });
-                        }
+        firebaseFirestore.collection(Constants.JOB_COLLECTION).get().addOnCompleteListener(this, task -> {
+            if (task.isSuccessful()) {
+                for (DocumentSnapshot d : task.getResult().getDocuments()) {
+                    Job job = d.toObject(Job.class);
+                    if (job == null) return;
+                    if (job.getClient().getUserID().equals(user.getUid())) {
+                        d.getReference().addSnapshotListener(DashboardActivity.this, (value, error) -> {
+                            if (value == null || error != null) return;
+                            Job job1 = value.toObject(Job.class);
+                            if (job1 == null) return;
+                            masterList.add(job1);
+                            organise();
+                        });
                     }
-                } else showTaskException(task, DashboardActivity.this);
-            }
+                }
+            } else showTaskException(task, DashboardActivity.this);
         });
     }
 }

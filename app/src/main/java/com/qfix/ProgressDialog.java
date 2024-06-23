@@ -9,6 +9,9 @@ import androidx.annotation.NonNull;
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 
+/**
+ * Dialog for showing progress
+ */
 public class ProgressDialog extends BottomSheetDialog {
     public ProgressDialog(@NonNull Context context) {
         super(context);

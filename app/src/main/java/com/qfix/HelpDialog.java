@@ -29,7 +29,7 @@ public class HelpDialog extends BottomSheetDialog {
             );
         });
         decor.findViewById(R.id.call).setOnClickListener(v -> {
-            Intent dial = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:+256772660112"));
+            Intent dial = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:+256705 954303"));
             context.startActivity(dial);
         });
     }

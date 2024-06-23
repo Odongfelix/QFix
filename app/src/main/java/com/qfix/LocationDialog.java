@@ -8,6 +8,9 @@ import androidx.annotation.NonNull;
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 
+/**
+ * Dialog for locations
+ */
 public class LocationDialog extends BottomSheetDialog {
     private OnLocationSelectedListener listener;
 

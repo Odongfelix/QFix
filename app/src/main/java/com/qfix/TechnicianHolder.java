@@ -6,6 +6,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+/**
+ * Holder for technicians
+ */
 public class TechnicianHolder extends RecyclerView.ViewHolder {
     private final TextView name;
     private final TextView place;

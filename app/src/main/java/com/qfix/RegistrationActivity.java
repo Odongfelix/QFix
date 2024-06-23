@@ -74,7 +74,7 @@ public class RegistrationActivity extends AccountActivity implements Starter, Ex
                                         Toast.makeText(RegistrationActivity.this, "You must add Location", Toast.LENGTH_SHORT).show();
                                         return;
                                     }
-                                    googleTechnician.setLocation(location);
+                                    googleTechnician.setLocation(location.toLowerCase());
                                     startActivityForResult(googleSignInClient.getSignInIntent(), signInCode);
                                 });
                             }
@@ -120,7 +120,7 @@ public class RegistrationActivity extends AccountActivity implements Starter, Ex
                         if (user == null) return;
                         Technician technician = new Technician(name, repairService);
                         technician.setBusinessName(businessName);
-                        technician.setLocation(((EditText) findViewById(R.id.location)).getText().toString());
+                        technician.setLocation(((EditText) findViewById(R.id.location)).getText().toString().toLowerCase());
                         technician.setPhone(((EditText) findViewById(R.id.phone)).getText().toString());
                         technician.setEmail(email.getText().toString());
                         technician.setUserID(user.getUid());

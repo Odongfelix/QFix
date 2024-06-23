@@ -7,6 +7,12 @@ import androidx.annotation.NonNull;
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 
+/**
+ * Dialog fo choosing the account type
+ * A listener is used to handle selections
+ * on the dialog
+ */
+
 public class AccountTypeDialog extends BottomSheetDialog {
     private OnAccountTypeSelectedListener listener;
     public AccountTypeDialog(@NonNull Context context) {

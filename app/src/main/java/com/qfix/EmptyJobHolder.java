@@ -6,6 +6,9 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+/**
+ * Holder for no jobs
+ */
 public class EmptyJobHolder extends RecyclerView.ViewHolder {
     private TextView textView;
     private ImageView imageView;

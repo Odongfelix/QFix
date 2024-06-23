@@ -4,6 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
+/**
+ * Un used activity for customer support
+ */
+
 public class CustomerSupport extends AppCompatActivity {
 
     @Override

@@ -8,15 +8,13 @@ import androidx.annotation.Nullable;
 
 import com.google.firebase.auth.FirebaseAuth;
 
+/**
+ * An activity for checking if the current user is registered, is a client
+ * and saving account type
+ */
 public class AccountActivity extends DataBaseActivity {
     protected boolean isRegistered() {
         return FirebaseAuth.getInstance().getCurrentUser() != null;
-    }
-
-    @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        //haven't seen the use for overriding this but that's nt a problem
     }
 
     protected boolean isClientAccount() {

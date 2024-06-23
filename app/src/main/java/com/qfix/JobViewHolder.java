@@ -6,6 +6,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+/**
+ * Holder for jobs
+ */
 public class JobViewHolder extends RecyclerView.ViewHolder {
     private final TextView job;
     private final TextView jobDetail;

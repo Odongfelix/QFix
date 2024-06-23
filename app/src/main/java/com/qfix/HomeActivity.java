@@ -7,6 +7,9 @@ import android.os.Bundle;
 
 import androidx.constraintlayout.utils.widget.ImageFilterView;
 
+/**
+ * Welcome activity
+ */
 public class HomeActivity extends AccountActivity {
 
     @Override

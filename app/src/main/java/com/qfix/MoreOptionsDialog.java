@@ -8,6 +8,10 @@ import androidx.annotation.NonNull;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.firebase.firestore.DocumentReference;
 
+/**
+ * Dialog for showing more options
+ */
+
 public class MoreOptionsDialog extends BottomSheetDialog {
     public MoreOptionsDialog(@NonNull Context context, Job job) {
         super(context);

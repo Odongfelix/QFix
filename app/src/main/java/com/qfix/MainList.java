@@ -2,6 +2,10 @@ package com.qfix;
 
 import java.util.ArrayList;
 
+/**
+ * List for holding a job
+ * @param <T> the job object
+ */
 public class MainList<T extends Job> extends ArrayList<T> {
 
     @Override

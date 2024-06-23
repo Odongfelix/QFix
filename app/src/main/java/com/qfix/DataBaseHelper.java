@@ -6,6 +6,9 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
+/**
+ * Helper for sqlite
+ */
 public class DataBaseHelper extends SQLiteOpenHelper {
     private static final String name = "data.db";
     private static final int version = 1;

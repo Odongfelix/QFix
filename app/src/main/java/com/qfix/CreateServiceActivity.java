@@ -11,6 +11,9 @@ import android.os.Looper;
 import android.util.TypedValue;
 import android.widget.TextView;
 
+/**
+ * Activity for requesting a repair service
+ */
 public class CreateServiceActivity extends AppCompatActivity {
     private CircularImageView iv;
     private TextView name, title;

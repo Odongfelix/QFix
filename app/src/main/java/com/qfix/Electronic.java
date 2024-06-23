@@ -2,6 +2,10 @@ package com.qfix;
 
 import java.io.Serializable;
 
+/**
+ * Class to represent electronics
+ */
+
 public class Electronic implements Serializable {
     private String model,name, manufacturer, details;
 

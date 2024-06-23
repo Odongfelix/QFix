@@ -8,6 +8,10 @@ import com.google.firebase.firestore.DocumentReference;
 import java.io.Serializable;
 import java.util.Random;
 
+
+/**
+ * Class for a job
+ */
 public class Job implements Serializable {
     private boolean isNew = true, isInProgress, isComplete,rejected;
     private Client client;

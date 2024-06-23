@@ -22,6 +22,10 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 
+
+/**
+ * Activity for technicians
+ */
 public class TechnicianActivity extends AppCompatActivity implements Starter, ExceptionHandler {
     protected JobAdapter adapter = new JobAdapter();
     private TextView title;
